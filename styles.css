@@ -1,0 +1,310 @@
+/* ==========================================================
+   LANDFORM: Home Page
+   Colors and sizes come from the Figma "Home Page" frame (1440px wide).
+   ========================================================== */
+
+
+/* ---------- PAGE BASICS ---------- */
+
+body {
+  /* Colors used across the site. Change one here and it updates everywhere. */
+  --green: #55785f;
+  --hover-green: #86C494;
+  --light-gray: #edebeb;
+  --placeholder-gray: #d9d9d9;
+  --line-gray: #999999;
+  --black: #000000;
+  --white: #ffffff;
+
+  margin: 0;
+  font-family: "Iosevka Charon", monospace;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+
+
+ 
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 113px;
+  padding: 0 70px 0 44px;
+  background-color: var(--green);
+}
+ 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--white);
+  text-decoration: none;
+}
+ 
+.logo-box {
+  width: 27px;
+  height: 27px;
+  background-color: var(--placeholder-gray);
+}
+ 
+.logo-text {
+  font-size: 36px;
+  font-weight: bold;
+}
+ 
+.nav-list {
+  display: flex;
+  gap: 87px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ 
+.nav-link {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: var(--white);
+  text-decoration: none;
+}
+ 
+/* When the mouse is over a nav word, it turns light green.
+   This one rule covers About, Site, Design Process, Building and Seasons. */
+.nav-link:hover {
+  color: var(--hover-green);
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 960px;
+  border-bottom: 26px solid var(--light-gray);
+
+  /* Two layers: a gray fade on top of the building render.
+     Export the render from Figma as images/hero.jpg */
+  background-image:
+    linear-gradient(to bottom, rgba(217, 217, 217, 0) 0%, rgba(156, 156, 156, 0.59) 62%, #737373 100%),
+    url("images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-title {
+  margin: 0 0 44px 0;
+  /* letter-spacing also adds space after the last letter.
+     The left padding balances it so the word stays centered. */
+  padding-left: 112px;
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: 112.5px;
+  color: var(--white);
+  opacity: 0.9;
+}
+
+
+/* ---------- INTRO ---------- */
+
+.intro {
+  /* position: relative lets the curvy lines sit in the corners of this section.
+     overflow: hidden cuts off the parts of the lines that go past the edge of the page. */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  gap: 168px;
+  /* top, right, bottom, left */
+  padding: 159px 127px 154px 186px;
+}
+ 
+/* Curvy lines: top right and bottom left corners.
+   The negative numbers push part of each image off the edge of the page, like in your design. */
+.lines-right {
+  position: absolute;
+  top: 0;
+  right: -280px;
+  width: 598px;
+}
+ 
+.lines-left {
+  position: absolute;
+  bottom: 0;
+  left: -243px;
+  width: 608px;
+}
+ 
+.intro-heading {
+  width: 308px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line-gray);
+}
+ 
+.intro-title {
+  margin: 0;
+  font-size: 64px;
+  line-height: 82px;
+}
+ 
+.intro-text {
+  flex: 1;
+  margin-top: 7px;
+}
+ 
+.intro-paragraph {
+  margin: 0 0 41px 0;
+  font-size: 32px;
+  line-height: 41px;
+}
+
+
+/* ---------- FEATURES (three columns) ---------- */
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 133px;
+  padding: 134px 0 150px 0;
+  color: var(--white);
+
+  /* A green tint over the contour-line texture.
+     Export the texture from Figma as images/contour-lines.png (set its layer to 100% opacity first).
+     The green color shows even if the image is missing. */
+  background-color: #929f96;
+  background-image:
+    linear-gradient(rgba(146, 159, 150, 0.75), rgba(146, 159, 150, 0.75)),
+    url("images/contour-lines.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  text-align: center;
+}
+
+.feature-image {
+  display: block;
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* The thin dotted line above and below each feature title */
+.feature-line {
+  width: 0;
+  height: 57px;
+  border-left: 2px dotted var(--white);
+}
+
+.feature-title {
+  width: 215px;
+  margin: 9px 0 15px 0;
+  font-size: 32px;
+  line-height: 41px;
+  font-weight: 500;
+}
+
+.feature-text {
+  margin: 7px 0 0 0;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 209px;
+  padding: 0 87px 0 89px;
+  background-color: var(--light-gray);
+}
+ 
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--black);
+  text-decoration: none;
+}
+ 
+.footer-logo-image {
+  height: 50px;
+  width: auto;
+}
+ 
+.footer-logo-text {
+  font-size: 48px;
+  font-weight: bold;
+}
+ 
+/* The row of footer words: About, Contact Us, Milwaukee County */
+.footer-list {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ 
+.footer-item {
+  display: flex;
+  align-items: center;
+}
+ 
+/* The thin vertical line before "Milwaukee County" */
+.footer-item-divided {
+  height: 34px;
+  padding-left: 40px;
+  border-left: 1px solid var(--black);
+}
+ 
+/* "details" boxes are what open and close when clicked */
+.footer-details {
+  position: relative;
+}
+ 
+.footer-summary {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: var(--black);
+  cursor: pointer;
+  /* hides the little triangle the browser adds by default */
+  list-style: none;
+}
+ 
+.footer-summary:hover {
+  color: var(--green);
+}
+ 
+/* The links that appear when a word is clicked. They open upward so they stay on the page. */
+.footer-sublist {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 220px;
+  margin: 0;
+  padding: 16px 20px;
+  list-style: none;
+  background-color: var(--white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+ 
+.footer-sublink {
+  display: block;
+  padding: 6px 0;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: var(--black);
+  text-decoration: none;
+}
