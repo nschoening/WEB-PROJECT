@@ -2,36 +2,54 @@
    LANDFORM: Home Page
    Colors and sizes come from the Figma "Home Page" frame (1440px wide).
    ========================================================== */
-
-
+ 
+ 
 /* ---------- PAGE BASICS ---------- */
-
+ 
 body {
   /* Colors used across the site. Change one here and it updates everywhere. */
   --green: #55785f;
-  --hover-green: #86C494;
+  --hover-green: #94c298;
   --light-gray: #edebeb;
   --placeholder-gray: #d9d9d9;
   --line-gray: #999999;
   --black: #000000;
   --white: #ffffff;
-
+ 
+  /* The Figma design is 1440px wide. min-width keeps the page from squishing on small windows. */
+  min-width: 1440px;
   margin: 0;
   font-family: "Iosevka Charon", monospace;
   color: var(--black);
   background-color: var(--white);
 }
-
-
-
+ 
+ 
+/* ---------- PAGE WIDTH ---------- */
+ 
+/* Colored sections stretch all the way to the edges of the screen.
+   The content inside each one sits in a box with this class: 1440px wide
+   (the width of your Figma design) and centered with "margin: 0 auto". */
+.page-width {
+  box-sizing: border-box;
+  width: 1440px;
+  margin: 0 auto;
+}
+ 
+ 
+/* ---------- NAVIGATION BAR ---------- */
  
 .site-header {
+  background-color: var(--green);
+}
+ 
+/* The content inside the green bar: logo on the left, links on the right */
+.header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 113px;
   padding: 0 70px 0 44px;
-  background-color: var(--green);
 }
  
 .logo {
@@ -42,10 +60,10 @@ body {
   text-decoration: none;
 }
  
-.logo-box {
-  width: 27px;
-  height: 27px;
-  background-color: var(--placeholder-gray);
+/* Height sets the size. Width adjusts itself so the logo is not stretched. */
+.logo-image {
+  height: 40px;
+  width: auto;
 }
  
 .logo-text {
@@ -73,17 +91,17 @@ body {
 .nav-link:hover {
   color: var(--hover-green);
 }
-
-
+ 
+ 
 /* ---------- HERO ---------- */
-
+ 
 .hero {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   height: 960px;
   border-bottom: 26px solid var(--light-gray);
-
+ 
   /* Two layers: a gray fade on top of the building render.
      Export the render from Figma as images/hero.jpg */
   background-image:
@@ -92,7 +110,7 @@ body {
   background-size: cover;
   background-position: center;
 }
-
+ 
 .hero-title {
   margin: 0 0 44px 0;
   /* letter-spacing also adds space after the last letter.
@@ -104,36 +122,27 @@ body {
   color: var(--white);
   opacity: 0.9;
 }
-
-
+ 
+ 
 /* ---------- INTRO ---------- */
-
+ 
 .intro {
-  /* position: relative lets the curvy lines sit in the corners of this section.
-     overflow: hidden cuts off the parts of the lines that go past the edge of the page. */
-  position: relative;
-  overflow: hidden;
+  /* The curvy lines are background images of this section, so they can never
+     show outside of it. The first image is the top right lines, the second is the bottom left lines.
+     The negative numbers push part of each image past the edge of the page, like in your design. */
+  background-image: url("images/lines-right.svg"), url("images/lines-left.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right -280px top 0, left -243px bottom 0;
+  background-size: 598px auto, 608px auto;
+}
+ 
+/* The centered box that holds the heading and the text */
+.intro-content {
   display: flex;
   align-items: flex-start;
   gap: 168px;
   /* top, right, bottom, left */
   padding: 159px 127px 154px 186px;
-}
- 
-/* Curvy lines: top right and bottom left corners.
-   The negative numbers push part of each image off the edge of the page, like in your design. */
-.lines-right {
-  position: absolute;
-  top: 0;
-  right: -280px;
-  width: 598px;
-}
- 
-.lines-left {
-  position: absolute;
-  bottom: 0;
-  left: -243px;
-  width: 608px;
 }
  
 .intro-heading {
@@ -158,17 +167,17 @@ body {
   font-size: 32px;
   line-height: 41px;
 }
-
-
+ 
+ 
 /* ---------- FEATURES (three columns) ---------- */
-
+ 
 .features {
   display: flex;
   justify-content: center;
   gap: 133px;
   padding: 134px 0 150px 0;
   color: var(--white);
-
+ 
   /* A green tint over the contour-line texture.
      Export the texture from Figma as images/contour-lines.png (set its layer to 100% opacity first).
      The green color shows even if the image is missing. */
@@ -179,7 +188,7 @@ body {
   background-size: cover;
   background-position: center;
 }
-
+ 
 .feature {
   display: flex;
   flex-direction: column;
@@ -187,7 +196,7 @@ body {
   width: 300px;
   text-align: center;
 }
-
+ 
 .feature-image {
   display: block;
   width: 225px;
@@ -195,38 +204,41 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
-
+ 
 /* The thin dotted line above and below each feature title */
 .feature-line {
   width: 0;
   height: 57px;
-  border-left: 2px dotted var(--white);
+  border-left: 1px dotted var(--white);
 }
-
+ 
 .feature-title {
   width: 215px;
   margin: 9px 0 15px 0;
   font-size: 32px;
   line-height: 41px;
-  font-weight: 500;
 }
-
+ 
 .feature-text {
   margin: 7px 0 0 0;
   font-size: 20px;
   line-height: 26px;
 }
-
-
+ 
+ 
 /* ---------- FOOTER ---------- */
-
+ 
 .site-footer {
+  background-color: var(--light-gray);
+}
+ 
+/* The content inside the gray bar */
+.footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 209px;
   padding: 0 87px 0 89px;
-  background-color: var(--light-gray);
 }
  
 .footer-logo {
@@ -308,3 +320,562 @@ body {
   color: var(--black);
   text-decoration: none;
 }
+ 
+.footer-sublink:hover {
+  color: var(--green);
+}
+ 
+ 
+/* ==========================================================
+   ABOUT PAGE (about.html)
+   ========================================================== */
+ 
+ 
+/* ---------- BANNER ---------- */
+ 
+.about-banner-image {
+  display: block;
+  width: 100%;
+  height: 506px;
+  object-fit: cover;
+}
+ 
+ 
+/* ---------- WHITE AREA WITH CURVY LINES ---------- */
+ 
+.about-content {
+  /* Three curvy line images are backgrounds of this white area, so they stay inside it.
+     In order: top right, left, bottom right.
+     Export them from Figma with these names (see the notes below the code). */
+  background-image: url("images/about-lines-top-right.svg"), url("images/about-lines-left.svg"), url("images/about-lines-bottom-right.svg");
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: right -218px top 0, left -209px top 739px, right -185px top 1275px;
+  background-size: 538px auto, 490px auto, 450px auto;
+}
+ 
+ 
+/* ---------- SHARED PARTS OF BOTH SECTIONS ---------- */
+ 
+/* Each section has a heading column on the left and text on the right */
+.about-design,
+.about-designers {
+  display: flex;
+  align-items: flex-start;
+}
+ 
+.about-side {
+  width: 327px;
+  margin-right: 112px;
+}
+ 
+.about-heading {
+  margin: 0 0 48px 0;
+  font-size: 64px;
+  line-height: 82px;
+}
+ 
+.about-heading em {
+  letter-spacing: 4.8px;
+}
+ 
+.about-line {
+  width: 303px;
+  border-top: 1px solid var(--line-gray);
+}
+ 
+.about-text {
+  width: 749px;
+}
+ 
+ 
+/* ---------- ABOUT THE DESIGN ---------- */
+ 
+.about-design {
+  /* top, right, bottom, left */
+  padding: 182px 98px 181px 154px;
+}
+ 
+.about-diagram {
+  display: block;
+  width: 282px;
+  margin: 126px 0 0 -16px;
+}
+ 
+.about-paragraph {
+  margin: 0 0 36px 0;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 28px;
+  line-height: 36px;
+}
+ 
+.about-paragraph:last-child {
+  margin-bottom: 0;
+}
+ 
+ 
+/* ---------- ABOUT THE DESIGNERS ---------- */
+ 
+.about-designers {
+  padding: 0 98px 189px 154px;
+}
+ 
+.about-names {
+  margin: 0 0 49px 0;
+  font-size: 28px;
+  line-height: 36px;
+}
+ 
+.about-bio {
+  margin: 0 0 65px 0;
+  font-size: 28px;
+  line-height: 36px;
+}
+ 
+/* The contact list: "CONTACT:" on the left, the three people stacked on the right */
+.about-contact {
+  display: flex;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 41px;
+}
+ 
+/* The label is only as wide as its own text, then a small gap before the list (About page) */
+.contact-label {
+  margin-right: 14px;
+}
+ 
+.contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ 
+.contact-link {
+  color: var(--black);
+  text-decoration: none;
+}
+ 
+.contact-link:hover {
+  color: var(--green);
+}
+ 
+ 
+/* ==========================================================
+   SITE PAGE (site.html)
+   ========================================================== */
+ 
+ 
+/* ---------- BANNER ---------- */
+ 
+.site-banner-image {
+  display: block;
+  width: 100%;
+  height: 506px;
+  object-fit: cover;
+}
+ 
+ 
+/* ---------- DOCTOR'S PARK (heading left, text right) ---------- */
+ 
+.site-intro {
+  /* Curvy lines: first image is top right, second is bottom left.
+     They are backgrounds, so they stay inside this section. */
+  background-image: url("images/site-lines-top-right.svg"), url("images/site-lines-bottom-left.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right -218px top 0, left -210px bottom 0;
+  background-size: 580px auto, 631px auto;
+}
+ 
+/* The centered box that holds the heading and the text */
+.site-intro-content {
+  display: flex;
+  align-items: flex-start;
+  /* top, right, bottom, left */
+  padding: 160px 136px 139px 177px;
+}
+ 
+.site-side {
+  width: 303px;
+  margin-right: 117px;
+}
+ 
+.site-heading {
+  margin: 0 0 27px 0;
+  font-size: 64px;
+  line-height: 82px;
+}
+ 
+.site-location {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin: 0 0 69px 0;
+  font-size: 28px;
+  line-height: 41px;
+  font-weight: bold;
+  font-style: italic;
+}
+ 
+.site-pin {
+  width: 19px;
+  height: 35px;
+}
+ 
+.site-line {
+  width: 303px;
+  border-top: 1px solid var(--line-gray);
+}
+ 
+.site-text {
+  width: 707px;
+}
+ 
+.site-paragraph {
+  margin: 0 0 36px 0;
+  font-size: 28px;
+  line-height: 36px;
+}
+ 
+.site-paragraph:last-child {
+  margin-bottom: 0;
+}
+ 
+ 
+/* ---------- EXISTING SITE CONDITIONS (green section) ---------- */
+ 
+.site-conditions {
+  /* A green tint over the contour line texture.
+     The green color shows even if the images are missing. */
+  background-color: #929f96;
+  background-image:
+    linear-gradient(rgba(146, 159, 150, 0.75), rgba(146, 159, 150, 0.75)),
+    url("images/contour-lines.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: cover, cover;
+}
+ 
+/* The centered box that holds the label, the photos and the thin outline */
+.conditions-canvas {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 106px;
+  background-image: url("images/site-frame-lines.svg");
+  background-repeat: no-repeat;
+  background-position: left 36px top 32px;
+  background-size: 1369px auto;
+}
+ 
+/* The white label in the top right corner */
+.conditions-label {
+  align-self: flex-end;
+  box-sizing: border-box;
+  width: 599px;
+  height: 107px;
+  margin: 0 0 7px 0;
+  padding: 34px 0 0 119px;
+  background-color: var(--white);
+  font-size: 28px;
+  line-height: 40px;
+}
+ 
+.conditions-photos {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  padding-left: 99px;
+}
+ 
+.photo-left {
+  width: 594px;
+  margin: 0;
+}
+ 
+/* The right photo sits lower than the left one, so it gets extra space on top */
+.photo-right {
+  width: 594px;
+  margin: 262px 0 0 0;
+}
+ 
+.site-photo {
+  display: block;
+  box-sizing: border-box;
+  width: 594px;
+  height: 594px;
+  border: 3px solid var(--white);
+  border-radius: 32px;
+  object-fit: cover;
+}
+ 
+ 
+/* ---------- PHOTO CAPTIONS WITH THIN LINES ---------- */
+ 
+/* Caption below the left photo. The thin line goes down and then right, ending at the caption. */
+.callout-below {
+  display: flex;
+  align-items: flex-end;
+  margin: 22px 0 0 35px;
+  color: var(--white);
+}
+ 
+.callout-corner-left {
+  position: relative;
+  box-sizing: border-box;
+  width: 193px;
+  height: 70px;
+  border-left: 1px solid var(--white);
+  border-bottom: 1px solid var(--white);
+}
+ 
+.callout-text {
+  flex-shrink: 0;
+  width: 376px;
+  margin: 0 0 -15px 17px;
+  font-size: 24px;
+  line-height: 31px;
+}
+ 
+/* Caption above the right photo. The thin line goes right and then down, ending at the photo. */
+.callout-above {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 0 21px 0;
+  color: var(--white);
+}
+ 
+.callout-text-right {
+  width: 376px;
+  margin: 0 16px 0 0;
+  font-size: 24px;
+  line-height: 31px;
+}
+ 
+.callout-corner-right {
+  position: relative;
+  box-sizing: border-box;
+  width: 136px;
+  height: 70px;
+  margin-top: 19px;
+  border-top: 1px solid var(--white);
+  border-right: 1px solid var(--white);
+}
+ 
+/* The small white dot where each thin line meets its photo */
+.callout-dot-left,
+.callout-dot-right {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--white);
+}
+ 
+.callout-dot-left {
+  left: -5px;
+  top: -7px;
+}
+ 
+.callout-dot-right {
+  right: -5px;
+  bottom: -4px;
+}
+ 
+ 
+/* ---------- TITLES: THE PROPOSAL and SITE MAP ---------- */
+ 
+.site-title {
+  margin: 0;
+  /* letter-spacing also adds space after the last letter.
+     The left padding balances it so the words stay centered. */
+  padding-left: 90px;
+  text-align: center;
+  font-size: 40px;
+  line-height: 51px;
+  font-weight: bold;
+  letter-spacing: 90px;
+  opacity: 0.9;
+}
+ 
+.proposal-title {
+  padding: 160px 0 159px 0;
+  background-image: url("images/proposal-lines-left.svg"), url("images/proposal-lines-right.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left -397px top 0, right -45px top 0;
+  background-size: 788px auto, 488px auto;
+}
+ 
+.map-title {
+  padding: 182px 0 170px 0;
+  background-image: url("images/map-lines-left.svg"), url("images/map-lines-right.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left -276px top 0, right -80px top 0;
+  background-size: 651px auto, 325px auto;
+}
+ 
+ 
+/* ---------- THE PROPOSAL (brown section) ---------- */
+ 
+.proposal {
+  color: var(--white);
+ 
+  /* Same idea as the green section, in brown */
+  background-color: #9a938f;
+  background-image:
+    linear-gradient(rgba(154, 147, 143, 0.75), rgba(154, 147, 143, 0.75)),
+    url("images/contour-lines.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: cover, cover;
+}
+ 
+/* The centered box that holds everything in this section */
+.proposal-content {
+  /* top, right, bottom, left */
+  padding: 63px 0 46px 0;
+}
+ 
+.proposal-top {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 104px;
+}
+ 
+.proposal-photo {
+  display: block;
+  box-sizing: border-box;
+  width: 647px;
+  height: 796px;
+  border: 2px solid var(--white);
+  border-radius: 20px;
+  object-fit: cover;
+}
+ 
+.proposal-text-block {
+  width: 512px;
+  margin: 158px 0 0 89px;
+}
+ 
+.proposal-line {
+  width: 303px;
+  margin-bottom: 52px;
+  border-top: 1px solid var(--white);
+}
+ 
+.proposal-text {
+  margin: 0;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 28px;
+  line-height: 36px;
+}
+ 
+/* Row of three small photos */
+.shelter-photos {
+  display: flex;
+  gap: 56px;
+  margin: 128px 0 0 0;
+  padding: 0 0 0 105px;
+  list-style: none;
+}
+ 
+.shelter-photo {
+  display: block;
+  width: 380px;
+  height: 401px;
+  object-fit: cover;
+}
+ 
+.shelter-notes {
+  display: flex;
+  align-items: flex-end;
+  margin: 28px 0 0 129px;
+}
+ 
+.shelter-bracket {
+  display: block;
+  width: 918px;
+}
+ 
+.shelter-caption {
+  margin: 0 0 -15px 17px;
+  font-size: 16px;
+  line-height: 31px;
+}
+ 
+ 
+/* ---------- SITE MAP ---------- */
+ 
+.site-map {
+  position: relative;
+}
+ 
+/* The map picture stretches to the edges of the screen */
+.map-image {
+  display: block;
+  width: 100%;
+}
+ 
+.map-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  width: 599px;
+  height: 107px;
+  margin: 0;
+  padding: 31px 0 0 60px;
+  background-color: var(--white);
+  font-size: 28px;
+  line-height: 40px;
+}
+ 
+/* The circles sit on top of the map. Their positions and sizes are percentages of the map,
+   so they stay lined up with the map no matter how wide the screen is.
+   "left" is the distance from the left edge, "top" is the distance from the top of the map. */
+.marker {
+  position: absolute;
+  width: 10.56%;
+}
+ 
+.marker-image {
+  display: block;
+  width: 100%;
+}
+ 
+.marker-landform {
+  left: 11.25%;
+  top: 33.66%;
+  width: 27.22%;
+}
+ 
+.marker-1 {
+  left: 48.13%;
+  top: 12.88%;
+}
+ 
+.marker-2 {
+  left: 9.38%;
+  top: 16.27%;
+}
+ 
+.marker-3 {
+  left: 69.31%;
+  top: 35.97%;
+}
+ 
+.marker-4 {
+  left: 50.49%;
+  top: 61.17%;
+}
+ 
+.marker-5 {
+  left: 12.57%;
+  top: 68.41%;
+}
+ 
+.map-compass {
+  position: absolute;
+  right: 39px;
+  bottom: 42px;
+  width: 87px;
+}
+ 
