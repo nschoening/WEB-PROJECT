@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seasons: Landform</title>
+
+  <!-- Inter is the font used for the navigation links -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+  <!-- Iosevka Charon is not on Google Fonts. These links load it from Fontsource instead.
+       Without them, the browser uses a wider default font and the text no longer matches your design. -->
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/iosevka-charon/400.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/iosevka-charon/700.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/iosevka-charon/400-italic.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/iosevka-charon/700-italic.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/iosevka-charon-mono/400.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/iosevka-charon-mono/400-italic.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/iosevka-charon-mono/500.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fontsource/iosevka-charon-mono/700.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVIGATION BAR (same as the other pages) -->
+  <header class="site-header">
+    <div class="page-width header-content">
+      <a class="logo" href="index.html">
+        <img class="logo-image" src="images/logo.png" alt="Landform logo">
+        <span class="logo-text">LANDFORM</span>
+      </a>
+
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="about.html">About</a></li>
+          <li><a class="nav-link" href="site.html">Site</a></li>
+          <li><a class="nav-link" href="design-process.html">Design Process</a></li>
+          <li><a class="nav-link" href="building.html">Building</a></li>
+          <li><a class="nav-link" href="seasons.html">Seasons</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article>
+
+      <!-- BANNER: color gradient with thin white curvy lines.
+           The lines at the left and right edges are backgrounds of this section, so they touch the
+           edges of the screen. The middle lines sit in the centered box. -->
+      <section class="seasons-banner">
+        <div class="page-width seasons-banner-content"></div>
+      </section>
+
+      <!-- INTRO: heading on the left, text on the right -->
+      <section class="seasons-intro">
+        <div class="page-width seasons-intro-content">
+          <div class="seasons-side">
+            <h1 class="seasons-heading">ONE BUILDING, FOUR SEASONS</h1>
+            <div class="seasons-line"></div>
+          </div>
+
+          <p class="seasons-paragraph">Landform is designed to stay in use all year. Its circular openings and sliding glass doors let each space open to the weather in warm months and close against it in cold ones, so the same rooms serve different needs as the seasons change.</p>
+        </div>
+      </section>
+
+      <!-- SPRING / SUMMER -->
+      <section class="season season-spring">
+        <div class="page-width season-content">
+          <div class="season-notes">
+          <div class="season-note">
+            <h3 class="season-label">OPEN TO<br>WEATHER</h3>
+            <p class="season-body">The roof over the circle retracts and the glass doors slide open, so the space reads as an outdoor room.</p>
+          </div>
+          <div class="season-note season-note-short">
+            <h3 class="season-label">USED OUTDOORS</h3>
+            <p class="season-body season-body-wide">People gather, rest and move through the circle and under the logs.</p>
+          </div>
+          <div class="season-note">
+            <h3 class="season-label">DAYLIGHT +<br>AIR</h3>
+            <p class="season-body season-body-wide">Sun and breeze reach the interior through the opening.</p>
+          </div>
+          </div>
+
+          <img class="season-plan season-plan-spring" src="images/season-spring-plan.png" alt="Plan of the circular opening with the roof retracted and the glass doors open">
+          <h2 class="season-title season-title-spring">SPRING / SUMMER</h2>
+
+          <!-- The thin lines and small circles that connect each note to the plan -->
+          <img class="season-lines season-lines-spring" src="images/seasons-spring-lines.svg" alt="">
+        </div>
+      </section>
+
+      <!-- FALL / WINTER -->
+      <section class="season season-fall">
+        <div class="page-width season-content">
+          <div class="season-notes">
+          <div class="season-note">
+            <h3 class="season-label">CLOSED AGAINST THE WEATHER</h3>
+            <p class="season-body">The sunroof and doors close, turning the same circle into a sheltered interior.</p>
+          </div>
+          <div class="season-note">
+            <h3 class="season-label">STILL LIT BY DAYLIGHT</h3>
+            <p class="season-body">The glazing keeps natural light inside even in snow.</p>
+          </div>
+          <div class="season-note">
+            <h3 class="season-label">SAME<br>CIRCULATION</h3>
+            <p class="season-body">The paths through the building stay the same, so people use it in every season.</p>
+          </div>
+          </div>
+
+          <img class="season-plan season-plan-fall" src="images/season-fall-plan.png" alt="Plan of the circular opening closed against the weather and covered in snow">
+          <h2 class="season-title season-title-fall">FALL / WINTER</h2>
+
+          <img class="season-lines season-lines-fall" src="images/seasons-fall-lines.svg" alt="">
+        </div>
+      </section>
+
+      <!-- THE PLANS: two round plans with labels -->
+      <section class="plans">
+        <div class="page-width plans-content">
+          <p class="plans-label">WHERE THE BUILDING CHANGES</p>
+          <p class="plans-paragraph">The plans below show where these seasonal changes happen. The operable skylights, shown in blue, are the circular openings that open and close. The areas in green are exposed to exterior conditions, so they’re the parts that are completely outdoors, but apart of the building.</p>
+
+          <!-- Plan 1: operable skylights. The small pictures on top are the blue skylight circles. -->
+          <div class="plan-box plan-box-1">
+            <img class="plan-image" src="images/plan-skylights.png" alt="Round plan of the building with the operable skylights">
+            <img class="plan-overlay skylight-1" src="images/plan-skylight-1.png" alt="">
+            <img class="plan-overlay skylight-2" src="images/plan-skylight-2.png" alt="">
+            <img class="plan-overlay skylight-3" src="images/plan-skylight-3.png" alt="">
+            <img class="plan-overlay skylight-4" src="images/plan-skylight-4.png" alt="">
+            <img class="plan-overlay skylight-5" src="images/plan-skylight-5.png" alt="">
+            <img class="plan-overlay skylight-6" src="images/plan-skylight-6.png" alt="">
+            <img class="plan-overlay skylight-7" src="images/plan-skylight-7.png" alt="">
+            <img class="plan-label-image plan-label-1" src="images/plan-skylights-label.svg" alt="Operable skylights">
+          </div>
+
+          <!-- Plan 2: areas exposed to the weather, circled in green -->
+          <div class="plan-box plan-box-2">
+            <img class="plan-image" src="images/plan-exposed.png" alt="Round plan of the building with the areas exposed to exterior conditions">
+            <img class="plan-overlay exposed-1" src="images/plan-exposed-1.png" alt="">
+            <img class="plan-overlay exposed-2" src="images/plan-exposed-2.png" alt="">
+            <img class="plan-overlay exposed-3" src="images/plan-exposed-3.png" alt="">
+            <img class="plan-overlay exposed-4" src="images/plan-exposed-3.png" alt="">
+            <img class="plan-overlay exposed-5" src="images/plan-exposed-3.png" alt="">
+            <img class="plan-label-image plan-label-2" src="images/plan-exposed-label.svg" alt="Exposed to exterior conditions">
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- FOOTER (same as the other pages) -->
+  <footer class="site-footer">
+    <div class="page-width footer-content">
+      <a class="footer-logo" href="index.html">
+        <img class="footer-logo-image" src="images/logo.png" alt="Landform logo">
+        <span class="footer-logo-text">LANDFORM</span>
+      </a>
+
+      <!-- Each item is a "details" box. Clicking the word (the "summary") opens the links inside it.
+           The link names and pages below are placeholders. Replace them with your own. -->
+      <nav class="footer-nav">
+        <ul class="footer-list">
+
+          <li class="footer-item">
+            <details class="footer-details">
+              <summary class="footer-summary">About</summary>
+              <ul class="footer-sublist">
+                <li><a class="footer-sublink" href="about.html">About link 1</a></li>
+                <li><a class="footer-sublink" href="about.html">About link 2</a></li>
+              </ul>
+            </details>
+          </li>
+
+          <li class="footer-item">
+            <details class="footer-details">
+              <summary class="footer-summary">Contact Us</summary>
+              <ul class="footer-sublist">
+                <li><a class="footer-sublink" href="contact.html">Contact link 1</a></li>
+                <li><a class="footer-sublink" href="contact.html">Contact link 2</a></li>
+              </ul>
+            </details>
+          </li>
+
+          <!-- This item has the thin vertical line on its left side -->
+          <li class="footer-item footer-item-divided">
+            <details class="footer-details">
+              <summary class="footer-summary">Milwaukee County</summary>
+              <ul class="footer-sublist">
+                <li><a class="footer-sublink" href="milwaukee-county.html">Milwaukee County link 1</a></li>
+                <li><a class="footer-sublink" href="milwaukee-county.html">Milwaukee County link 2</a></li>
+              </ul>
+            </details>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
