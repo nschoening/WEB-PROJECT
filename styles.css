@@ -2,10 +2,10 @@
    LANDFORM: Home Page
    Colors and sizes come from the Figma "Home Page" frame (1440px wide).
    ========================================================== */
- 
- 
+
+
 /* ---------- PAGE BASICS ---------- */
- 
+
 body {
   /* Colors used across the site. Change one here and it updates everywhere. */
   --green: #55785f;
@@ -15,7 +15,7 @@ body {
   --line-gray: #999999;
   --black: #000000;
   --white: #ffffff;
- 
+
   /* The Figma design is 1440px wide. min-width keeps the page from squishing on small windows. */
   min-width: 1440px;
   margin: 0;
@@ -23,10 +23,10 @@ body {
   color: var(--black);
   background-color: var(--white);
 }
- 
- 
+
+
 /* ---------- PAGE WIDTH ---------- */
- 
+
 /* Colored sections stretch all the way to the edges of the screen.
    The content inside each one sits in a box with this class: 1440px wide
    (the width of your Figma design) and centered with "margin: 0 auto". */
@@ -35,14 +35,14 @@ body {
   width: 1440px;
   margin: 0 auto;
 }
- 
- 
+
+
 /* ---------- NAVIGATION BAR ---------- */
- 
+
 .site-header {
   background-color: var(--green);
 }
- 
+
 /* The content inside the green bar: logo on the left, links on the right */
 .header-content {
   display: flex;
@@ -51,7 +51,7 @@ body {
   height: 113px;
   padding: 0 70px 0 44px;
 }
- 
+
 .logo {
   display: flex;
   align-items: center;
@@ -59,18 +59,18 @@ body {
   color: var(--white);
   text-decoration: none;
 }
- 
+
 /* Height sets the size. Width adjusts itself so the logo is not stretched. */
 .logo-image {
   height: 40px;
   width: auto;
 }
- 
+
 .logo-text {
   font-size: 36px;
   font-weight: bold;
 }
- 
+
 .nav-list {
   display: flex;
   gap: 87px;
@@ -78,30 +78,30 @@ body {
   padding: 0;
   list-style: none;
 }
- 
+
 .nav-link {
   font-family: "Inter", sans-serif;
   font-size: 20px;
   color: var(--white);
   text-decoration: none;
 }
- 
+
 /* When the mouse is over a nav word, it turns light green.
    This one rule covers About, Site, Design Process, Building and Seasons. */
 .nav-link:hover {
   color: var(--hover-green);
 }
- 
- 
+
+
 /* ---------- HERO ---------- */
- 
+
 .hero {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   height: 960px;
   border-bottom: 26px solid var(--light-gray);
- 
+
   /* Two layers: a gray fade on top of the building render.
      Export the render from Figma as images/hero.jpg */
   background-image:
@@ -110,7 +110,7 @@ body {
   background-size: cover;
   background-position: center;
 }
- 
+
 .hero-title {
   margin: 0 0 44px 0;
   /* letter-spacing also adds space after the last letter.
@@ -122,20 +122,22 @@ body {
   color: var(--white);
   opacity: 0.9;
 }
- 
- 
+
+
 /* ---------- INTRO ---------- */
- 
+
 .intro {
   /* The curvy lines are background images of this section, so they can never
      show outside of it. The first image is the top right lines, the second is the bottom left lines.
-     The negative numbers push part of each image past the edge of the page, like in your design. */
+     Figma cuts the lines off at the edge of the screen, so each image is only the part you can
+     see. The sizes below are exactly that visible width, and the lines sit flush against the
+     edges of the screen. */
   background-image: url("images/lines-right.svg"), url("images/lines-left.svg");
   background-repeat: no-repeat, no-repeat;
-  background-position: right -280px top 0, left -243px bottom 0;
-  background-size: 598px auto, 608px auto;
+  background-position: right top, left bottom;
+  background-size: 317px auto, 365px auto;
 }
- 
+
 /* The centered box that holds the heading and the text */
 .intro-content {
   display: flex;
@@ -144,51 +146,51 @@ body {
   /* top, right, bottom, left */
   padding: 159px 127px 154px 186px;
 }
- 
+
 .intro-heading {
   width: 308px;
   padding-bottom: 40px;
   border-bottom: 1px solid var(--line-gray);
 }
- 
+
 .intro-title {
   margin: 0;
   font-size: 64px;
   line-height: 82px;
 }
- 
+
 .intro-text {
   flex: 1;
   margin-top: 7px;
 }
- 
+
 .intro-paragraph {
   margin: 0 0 41px 0;
   font-size: 32px;
   line-height: 41px;
 }
- 
- 
+
+
 /* ---------- FEATURES (three columns) ---------- */
- 
+
 .features {
   display: flex;
   justify-content: center;
   gap: 133px;
   padding: 134px 0 150px 0;
   color: var(--white);
- 
+
   /* A green tint over the contour-line texture.
-     Export the texture from Figma as images/contour-lines.png (set its layer to 100% opacity first).
+     The texture is the same image as the site map: images/site-map.png.
      The green color shows even if the image is missing. */
   background-color: #929f96;
   background-image:
     linear-gradient(rgba(146, 159, 150, 0.75), rgba(146, 159, 150, 0.75)),
-    url("images/contour-lines.png");
+    url("images/site-map.png");
   background-size: cover;
   background-position: center;
 }
- 
+
 .feature {
   display: flex;
   flex-direction: column;
@@ -196,42 +198,43 @@ body {
   width: 300px;
   text-align: center;
 }
- 
+
 .feature-image {
   display: block;
   width: 225px;
   height: 225px;
   border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
- 
+
 /* The thin dotted line above and below each feature title */
 .feature-line {
   width: 0;
   height: 57px;
   border-left: 1px dotted var(--white);
 }
- 
+
 .feature-title {
   width: 215px;
   margin: 9px 0 15px 0;
   font-size: 32px;
   line-height: 41px;
 }
- 
+
 .feature-text {
   margin: 7px 0 0 0;
   font-size: 20px;
   line-height: 26px;
 }
- 
- 
+
+
 /* ---------- FOOTER ---------- */
- 
+
 .site-footer {
   background-color: var(--light-gray);
 }
- 
+
 /* The content inside the gray bar */
 .footer-content {
   display: flex;
@@ -240,7 +243,7 @@ body {
   height: 209px;
   padding: 0 87px 0 89px;
 }
- 
+
 .footer-logo {
   display: flex;
   align-items: center;
@@ -248,17 +251,17 @@ body {
   color: var(--black);
   text-decoration: none;
 }
- 
+
 .footer-logo-image {
   height: 50px;
   width: auto;
 }
- 
+
 .footer-logo-text {
   font-size: 48px;
   font-weight: bold;
 }
- 
+
 /* The row of footer words: About, Contact Us, Milwaukee County */
 .footer-list {
   display: flex;
@@ -268,24 +271,24 @@ body {
   padding: 0;
   list-style: none;
 }
- 
+
 .footer-item {
   display: flex;
   align-items: center;
 }
- 
+
 /* The thin vertical line before "Milwaukee County" */
 .footer-item-divided {
   height: 34px;
   padding-left: 40px;
   border-left: 1px solid var(--black);
 }
- 
+
 /* "details" boxes are what open and close when clicked */
 .footer-details {
   position: relative;
 }
- 
+
 .footer-summary {
   font-family: "Inter", sans-serif;
   font-size: 20px;
@@ -294,11 +297,11 @@ body {
   /* hides the little triangle the browser adds by default */
   list-style: none;
 }
- 
+
 .footer-summary:hover {
   color: var(--green);
 }
- 
+
 /* The links that appear when a word is clicked. They open upward so they stay on the page. */
 .footer-sublist {
   position: absolute;
@@ -311,7 +314,7 @@ body {
   background-color: var(--white);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
- 
+
 .footer-sublink {
   display: block;
   padding: 6px 0;
@@ -320,117 +323,119 @@ body {
   color: var(--black);
   text-decoration: none;
 }
- 
+
 .footer-sublink:hover {
   color: var(--green);
 }
- 
- 
+
+
 /* ==========================================================
    ABOUT PAGE (about.html)
    ========================================================== */
- 
- 
+
+
 /* ---------- BANNER ---------- */
- 
+
 .about-banner-image {
   display: block;
   width: 100%;
   height: 506px;
   object-fit: cover;
 }
- 
- 
+
+
 /* ---------- WHITE AREA WITH CURVY LINES ---------- */
- 
+
 .about-content {
   /* Three curvy line images are backgrounds of this white area, so they stay inside it.
      In order: top right, left, bottom right.
-     Export them from Figma with these names (see the notes below the code). */
+     Figma cuts the lines off at the edge of the screen, so each image is only the part you can
+     see. The sizes below are exactly that visible width, and the lines sit flush against the
+     edges of the screen. */
   background-image: url("images/about-lines-top-right.svg"), url("images/about-lines-left.svg"), url("images/about-lines-bottom-right.svg");
   background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: right -218px top 0, left -209px top 739px, right -185px top 1275px;
-  background-size: 538px auto, 490px auto, 450px auto;
+  background-position: right top, left top 739px, right top 1275px;
+  background-size: 320px auto, 281px auto, 265px auto;
 }
- 
- 
+
+
 /* ---------- SHARED PARTS OF BOTH SECTIONS ---------- */
- 
+
 /* Each section has a heading column on the left and text on the right */
 .about-design,
 .about-designers {
   display: flex;
   align-items: flex-start;
 }
- 
+
 .about-side {
   width: 327px;
   margin-right: 112px;
 }
- 
+
 .about-heading {
   margin: 0 0 48px 0;
   font-size: 64px;
   line-height: 82px;
 }
- 
+
 .about-heading em {
   letter-spacing: 4.8px;
 }
- 
+
 .about-line {
   width: 303px;
   border-top: 1px solid var(--line-gray);
 }
- 
+
 .about-text {
   width: 749px;
 }
- 
- 
+
+
 /* ---------- ABOUT THE DESIGN ---------- */
- 
+
 .about-design {
   /* top, right, bottom, left */
   padding: 182px 98px 181px 154px;
 }
- 
+
 .about-diagram {
   display: block;
   width: 282px;
   margin: 126px 0 0 -16px;
 }
- 
+
 .about-paragraph {
   margin: 0 0 36px 0;
   font-family: "Iosevka Charon Mono", monospace;
   font-size: 28px;
   line-height: 36px;
 }
- 
+
 .about-paragraph:last-child {
   margin-bottom: 0;
 }
- 
- 
+
+
 /* ---------- ABOUT THE DESIGNERS ---------- */
- 
+
 .about-designers {
   padding: 0 98px 189px 154px;
 }
- 
+
 .about-names {
   margin: 0 0 49px 0;
   font-size: 28px;
   line-height: 36px;
 }
- 
+
 .about-bio {
   margin: 0 0 65px 0;
   font-size: 28px;
   line-height: 36px;
 }
- 
+
 /* The contact list: "CONTACT:" on the left, the three people stacked on the right */
 .about-contact {
   display: flex;
@@ -438,54 +443,59 @@ body {
   font-size: 28px;
   line-height: 41px;
 }
- 
+
 /* The label is only as wide as its own text, then a small gap before the list (About page) */
 .contact-label {
   margin-right: 14px;
 }
- 
+
 .contact-list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
- 
+
 .contact-link {
   color: var(--black);
   text-decoration: none;
 }
- 
+
 .contact-link:hover {
   color: var(--green);
 }
- 
- 
+
+
 /* ==========================================================
    SITE PAGE (site.html)
    ========================================================== */
- 
- 
+
+
 /* ---------- BANNER ---------- */
- 
+
 .site-banner-image {
   display: block;
   width: 100%;
   height: 506px;
   object-fit: cover;
 }
- 
- 
+
+
+/* About the curvy line sizes on this page:
+   Figma cuts the lines off at the edge of the screen, so each exported image is only the
+   part you can see. The sizes below are exactly that visible width, which keeps the left
+   and right lines at the same scale. The lines sit flush against the screen edges. */
+
 /* ---------- DOCTOR'S PARK (heading left, text right) ---------- */
- 
+
 .site-intro {
   /* Curvy lines: first image is top right, second is bottom left.
      They are backgrounds, so they stay inside this section. */
   background-image: url("images/site-lines-top-right.svg"), url("images/site-lines-bottom-left.svg");
   background-repeat: no-repeat, no-repeat;
-  background-position: right -218px top 0, left -210px bottom 0;
-  background-size: 580px auto, 631px auto;
+  background-position: right top, left bottom;
+  background-size: 362px auto, 421px auto;
 }
- 
+
 /* The centered box that holds the heading and the text */
 .site-intro-content {
   display: flex;
@@ -493,18 +503,18 @@ body {
   /* top, right, bottom, left */
   padding: 160px 136px 139px 177px;
 }
- 
+
 .site-side {
   width: 303px;
   margin-right: 117px;
 }
- 
+
 .site-heading {
   margin: 0 0 27px 0;
   font-size: 64px;
   line-height: 82px;
 }
- 
+
 .site-location {
   display: flex;
   align-items: center;
@@ -515,59 +525,141 @@ body {
   font-weight: bold;
   font-style: italic;
 }
- 
+
 .site-pin {
   width: 19px;
   height: 35px;
 }
- 
+
 .site-line {
   width: 303px;
   border-top: 1px solid var(--line-gray);
 }
- 
+
 .site-text {
   width: 707px;
 }
- 
+
 .site-paragraph {
   margin: 0 0 36px 0;
   font-size: 28px;
   line-height: 36px;
 }
- 
+
 .site-paragraph:last-child {
   margin-bottom: 0;
 }
- 
- 
+
+
 /* ---------- EXISTING SITE CONDITIONS (green section) ---------- */
- 
+
 .site-conditions {
-  /* A green tint over the contour line texture.
-     The green color shows even if the images are missing. */
+  /* position: relative lets the texture and the white label extension sit inside this section */
+  position: relative;
   background-color: #929f96;
-  background-image:
-    linear-gradient(rgba(146, 159, 150, 0.75), rgba(146, 159, 150, 0.75)),
-    url("images/contour-lines.png");
-  background-repeat: no-repeat, no-repeat;
-  background-position: center, center;
-  background-size: cover, cover;
 }
- 
+
+/* The contour-line texture (the same picture as the site map) lies on top of the section's
+   color, like in your Figma design. It is only 25% visible.
+   Make the opacity number bigger for stronger lines, or smaller for fainter lines.
+   The brown section below uses this too. */
+.texture-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("images/site-map.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 150% auto;
+  opacity: 0.25;
+  /* lets clicks go through the texture to the links and photos underneath */
+  pointer-events: none;
+}
+
+/* The texture in the brown section. In your Figma design the map picture is stretched tall
+   (1890px wide and 5254px tall) and only the bottom part of it shows, which is what gives
+   the long diagonal contour lines. These numbers copy that.
+   - background-size is "width height"
+   - background-position lines the picture up with the bottom of the section, so only
+     the bottom part of the tall picture shows
+   To zoom in or out, change the two numbers in background-size together. */
+.proposal-texture {
+  background-position: left -8px bottom -100px;
+  background-size: 1890px 5254px;
+}
+
+/* The white label continues to the right edge of the screen.
+   It starts where the centered 1440px box ends: the middle of the screen plus 720px. */
+.tab-extension {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 0;
+  height: 107px;
+  margin-left: 720px;
+  background-color: var(--white);
+  z-index: 1;
+}
+
 /* The centered box that holds the label, the photos and the thin outline */
 .conditions-canvas {
+  /* position: relative lets the outline boxes below sit in exact spots inside this box */
+  position: relative;
   display: flex;
   flex-direction: column;
   padding-bottom: 106px;
-  background-image: url("images/site-frame-lines.svg");
-  background-repeat: no-repeat;
-  background-position: left 36px top 32px;
-  background-size: 1369px auto;
 }
- 
+
+/* The thin white outline around the photos. It steps around the white label in the top right,
+   so it is drawn with three simple pieces:
+   1. the left part, which has the top, left and bottom lines
+   2. the right part, which has the line under the label, the right line and the bottom line
+   3. a short line that connects the two parts next to the label
+   These sit directly in the green section, so they follow the edges of the screen:
+   the left part starts 36px from the left edge, the right part ends 34px from the right edge,
+   and the two parts meet at the middle of the screen (where the label starts). */
+.outline-left {
+  position: absolute;
+  left: 36px;
+  right: 50%;
+  margin-right: -87px;
+  top: 32px;
+  box-sizing: border-box;
+  height: 1117px;
+  border-top: 1px solid var(--white);
+  border-left: 1px solid var(--white);
+  border-bottom: 1px solid var(--white);
+}
+
+.outline-right {
+  position: absolute;
+  left: 50%;
+  margin-left: 86px;
+  right: 34px;
+  top: 137px;
+  box-sizing: border-box;
+  height: 1012px;
+  border-top: 1px solid var(--white);
+  border-right: 1px solid var(--white);
+  border-bottom: 1px solid var(--white);
+}
+
+.outline-notch {
+  position: absolute;
+  left: 50%;
+  margin-left: 86px;
+  top: 32px;
+  height: 105px;
+  border-left: 1px solid var(--white);
+}
+
 /* The white label in the top right corner */
 .conditions-label {
+  /* position and z-index keep the label on top of the texture */
+  position: relative;
+  z-index: 1;
   align-self: flex-end;
   box-sizing: border-box;
   width: 599px;
@@ -578,38 +670,45 @@ body {
   font-size: 28px;
   line-height: 40px;
 }
- 
+
 .conditions-photos {
   display: flex;
   align-items: flex-start;
   gap: 48px;
   padding-left: 99px;
 }
- 
+
 .photo-left {
   width: 594px;
   margin: 0;
 }
- 
+
 /* The right photo sits lower than the left one, so it gets extra space on top */
 .photo-right {
   width: 594px;
   margin: 262px 0 0 0;
 }
- 
+
+/* Every photo on this page shares this white border.
+   Change the number here and all of the photos change together. */
+.site-photo,
+.proposal-photo,
+.shelter-photo {
+  box-sizing: border-box;
+  border: 3px solid var(--white);
+}
+
 .site-photo {
   display: block;
-  box-sizing: border-box;
   width: 594px;
   height: 594px;
-  border: 3px solid var(--white);
   border-radius: 32px;
   object-fit: cover;
 }
- 
- 
+
+
 /* ---------- PHOTO CAPTIONS WITH THIN LINES ---------- */
- 
+
 /* Caption below the left photo. The thin line goes down and then right, ending at the caption. */
 .callout-below {
   display: flex;
@@ -617,7 +716,7 @@ body {
   margin: 22px 0 0 35px;
   color: var(--white);
 }
- 
+
 .callout-corner-left {
   position: relative;
   box-sizing: border-box;
@@ -626,7 +725,7 @@ body {
   border-left: 1px solid var(--white);
   border-bottom: 1px solid var(--white);
 }
- 
+
 .callout-text {
   flex-shrink: 0;
   width: 376px;
@@ -634,7 +733,7 @@ body {
   font-size: 24px;
   line-height: 31px;
 }
- 
+
 /* Caption above the right photo. The thin line goes right and then down, ending at the photo. */
 .callout-above {
   display: flex;
@@ -642,14 +741,14 @@ body {
   margin: 0 0 21px 0;
   color: var(--white);
 }
- 
+
 .callout-text-right {
   width: 376px;
   margin: 0 16px 0 0;
   font-size: 24px;
   line-height: 31px;
 }
- 
+
 .callout-corner-right {
   position: relative;
   box-sizing: border-box;
@@ -659,7 +758,7 @@ body {
   border-top: 1px solid var(--white);
   border-right: 1px solid var(--white);
 }
- 
+
 /* The small white dot where each thin line meets its photo */
 .callout-dot-left,
 .callout-dot-right {
@@ -669,20 +768,20 @@ body {
   border-radius: 50%;
   background-color: var(--white);
 }
- 
+
 .callout-dot-left {
   left: -5px;
   top: -7px;
 }
- 
+
 .callout-dot-right {
   right: -5px;
   bottom: -4px;
 }
- 
- 
+
+
 /* ---------- TITLES: THE PROPOSAL and SITE MAP ---------- */
- 
+
 .site-title {
   margin: 0;
   /* letter-spacing also adds space after the last letter.
@@ -695,79 +794,70 @@ body {
   letter-spacing: 90px;
   opacity: 0.9;
 }
- 
+
 .proposal-title {
   padding: 160px 0 159px 0;
   background-image: url("images/proposal-lines-left.svg"), url("images/proposal-lines-right.svg");
   background-repeat: no-repeat, no-repeat;
-  background-position: left -397px top 0, right -45px top 0;
-  background-size: 788px auto, 488px auto;
+  background-position: left top, right top;
+  background-size: 391px auto, 443px auto;
 }
- 
+
 .map-title {
   padding: 182px 0 170px 0;
   background-image: url("images/map-lines-left.svg"), url("images/map-lines-right.svg");
   background-repeat: no-repeat, no-repeat;
-  background-position: left -276px top 0, right -80px top 0;
-  background-size: 651px auto, 325px auto;
+  background-position: left top, right top;
+  background-size: 375px auto, 245px auto;
 }
- 
- 
+
+
 /* ---------- THE PROPOSAL (brown section) ---------- */
- 
+
 .proposal {
+  position: relative;
   color: var(--white);
- 
-  /* Same idea as the green section, in brown */
   background-color: #9a938f;
-  background-image:
-    linear-gradient(rgba(154, 147, 143, 0.75), rgba(154, 147, 143, 0.75)),
-    url("images/contour-lines.png");
-  background-repeat: no-repeat, no-repeat;
-  background-position: center, center;
-  background-size: cover, cover;
 }
- 
+
 /* The centered box that holds everything in this section */
 .proposal-content {
   /* top, right, bottom, left */
   padding: 63px 0 46px 0;
 }
- 
+
 .proposal-top {
   display: flex;
   align-items: flex-start;
   padding-left: 104px;
 }
- 
+
 .proposal-photo {
   display: block;
-  box-sizing: border-box;
   width: 647px;
   height: 796px;
-  border: 2px solid var(--white);
   border-radius: 20px;
   object-fit: cover;
 }
- 
+
 .proposal-text-block {
   width: 512px;
   margin: 158px 0 0 89px;
 }
- 
+
 .proposal-line {
   width: 303px;
   margin-bottom: 52px;
   border-top: 1px solid var(--white);
 }
- 
+
 .proposal-text {
   margin: 0;
   font-family: "Iosevka Charon Mono", monospace;
   font-size: 28px;
   line-height: 36px;
 }
- 
+
 /* Row of three small photos */
 .shelter-photos {
   display: flex;
@@ -776,44 +866,45 @@ body {
   padding: 0 0 0 105px;
   list-style: none;
 }
- 
+
 .shelter-photo {
   display: block;
   width: 380px;
   height: 401px;
+  border-radius: 20px;
   object-fit: cover;
 }
- 
+
 .shelter-notes {
   display: flex;
   align-items: flex-end;
   margin: 28px 0 0 129px;
 }
- 
+
 .shelter-bracket {
   display: block;
   width: 918px;
 }
- 
+
 .shelter-caption {
   margin: 0 0 -15px 17px;
   font-size: 16px;
   line-height: 31px;
 }
- 
- 
+
+
 /* ---------- SITE MAP ---------- */
- 
+
 .site-map {
   position: relative;
 }
- 
+
 /* The map picture stretches to the edges of the screen */
 .map-image {
   display: block;
   width: 100%;
 }
- 
+
 .map-label {
   position: absolute;
   top: 0;
@@ -827,7 +918,7 @@ body {
   font-size: 28px;
   line-height: 40px;
 }
- 
+
 /* The circles sit on top of the map. Their positions and sizes are percentages of the map,
    so they stay lined up with the map no matter how wide the screen is.
    "left" is the distance from the left edge, "top" is the distance from the top of the map. */
@@ -835,47 +926,1551 @@ body {
   position: absolute;
   width: 10.56%;
 }
- 
+
 .marker-image {
   display: block;
   width: 100%;
 }
- 
+
 .marker-landform {
   left: 11.25%;
   top: 33.66%;
   width: 27.22%;
 }
- 
+
 .marker-1 {
   left: 48.13%;
   top: 12.88%;
 }
- 
+
 .marker-2 {
   left: 9.38%;
   top: 16.27%;
 }
- 
+
 .marker-3 {
   left: 69.31%;
   top: 35.97%;
 }
- 
+
 .marker-4 {
   left: 50.49%;
   top: 61.17%;
 }
- 
+
 .marker-5 {
   left: 12.57%;
   top: 68.41%;
 }
- 
+
 .map-compass {
   position: absolute;
   right: 39px;
   bottom: 42px;
   width: 87px;
 }
- 
+
+
+/* ==========================================================
+   DESIGN PROCESS PAGE
+   Colors and sizes come from the Figma "Design Process" frame (1440px wide).
+   ========================================================== */
+
+/* ---------- BANNER ---------- */
+
+.process-banner-image {
+  display: block;
+  width: 100%;
+  height: 506px;
+  object-fit: cover;
+}
+
+
+/* ---------- INTRO (heading left, quote right) ---------- */
+
+.process-intro {
+  /* Curvy lines in the top left and top right corners.
+     Each image is only the part you can see in Figma, and sits against the edge of the screen. */
+  background-image: url("images/process-lines-top-left.svg"), url("images/process-lines-top-right.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right top 1px;
+  background-size: 217px auto, 145px auto;
+}
+
+.process-intro-content {
+  display: flex;
+  align-items: flex-start;
+  /* top, right, bottom, left */
+  padding: 182px 0 150px 204px;
+}
+
+.process-side {
+  width: 303px;
+  margin-right: 109px;
+}
+
+.process-heading {
+  margin: 0 0 74px 0;
+  font-size: 64px;
+  line-height: 82px;
+}
+
+.process-line {
+  border-top: 1px solid var(--line-gray);
+}
+
+.process-text {
+  width: 707px;
+}
+
+.process-label,
+.process-quote {
+  margin: 0;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.process-label {
+  font-style: italic;
+}
+
+.process-quote {
+  margin-top: 29px;
+}
+
+
+/* ---------- SHARED PARTS OF ALL FOUR PHASES ---------- */
+
+/* Everything in a phase is stacked in one centered column */
+.phase-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.phase-content img {
+  display: block;
+}
+
+.phase-title {
+  margin: 0;
+  font-size: 64px;
+  line-height: 84px;
+  font-style: italic;
+}
+
+.phase-subtitle,
+.phase-paragraph {
+  margin: 0;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.phase-subtitle {
+  font-style: italic;
+}
+
+
+/* ---------- PHASE 1 ---------- */
+
+.phase-1-content {
+  padding-bottom: 317px;
+  /* The dashed lines are backgrounds. Each one is "left, top" measured from the top left
+     of this box. In order: right side, left side, bottom. */
+  background-image: url("images/phase1-dash-right.svg"), url("images/phase1-dash-left.svg"), url("images/phase1-dash-bottom.svg");
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: left 1195px top 490px, left 77px top 1403px, left 698px top 1835px;
+  background-size: 142px auto, 214px auto, 592px auto;
+}
+
+.phase-1-iterations {
+  width: 878px;
+  margin-top: 62px;
+}
+
+.phase-1-diagrams {
+  width: 890px;
+  margin-top: 46px;
+}
+
+.phase-1-paragraph {
+  width: 715px;
+  margin-top: 47px;
+}
+
+.phase-1-program {
+  box-sizing: border-box;
+  width: 787px;
+  margin-top: 60px;
+  border: 1px solid #9d9d9d;
+}
+
+
+/* ---------- PHASE 2 ---------- */
+
+.phase-2-content {
+  padding-bottom: 300px;
+  background-image: url("images/phase2-dash.svg");
+  background-repeat: no-repeat;
+  background-position: left 181px top 627px;
+  background-size: 556px auto;
+}
+
+.phase-2-row {
+  display: flex;
+  gap: 28px;
+  margin-top: 74px;
+  /* This small push to the right matches the position in your design */
+  padding-left: 60px;
+}
+
+.phase-2-image {
+  box-sizing: border-box;
+  width: 341px;
+  border: 1px solid var(--black);
+}
+
+.phase-2-paragraph {
+  width: 744px;
+  margin-top: 74px;
+}
+
+
+/* ---------- PHASE 3 ---------- */
+
+.phase-3-content {
+  padding-bottom: 332px;
+  background-image: url("images/phase3-dash-left.svg"), url("images/phase3-dash-right.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left 68px top 338px, left 714px top 1287px;
+  background-size: 128px auto, 606px auto;
+}
+
+.phase-3-subtitle {
+  margin-top: 37px;
+}
+
+/* Four plans in two rows of two */
+.phase-3-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  /* row gap, then column gap */
+  gap: 31px 36px;
+  width: 976px;
+  margin-top: 38px;
+}
+
+.phase-3-image {
+  box-sizing: border-box;
+  width: 470px;
+  border: 1px solid var(--black);
+}
+
+.phase-3-paragraph {
+  width: 746px;
+  margin-top: 66px;
+}
+
+
+/* ---------- PHASE 4 ---------- */
+
+.phase-4 {
+  /* Curvy lines in the bottom left and bottom right corners */
+  background-image: url("images/process-lines-bottom-left.svg"), url("images/process-lines-bottom-right.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left bottom, right bottom;
+  background-size: 353px auto, 386px auto;
+}
+
+.phase-4-content {
+  padding-bottom: 167px;
+  background-image: url("images/phase4-dash.svg");
+  background-repeat: no-repeat;
+  background-position: left 170px top 256px;
+  background-size: 613px auto;
+}
+
+.phase-4-paragraph {
+  width: 746px;
+  margin-top: 59px;
+}
+
+
+/* ---------- COLLAGE ---------- */
+
+/* The collage pictures overlap each other, so this is the one place that uses exact positions.
+   The box is 1440px wide like the page. Each picture says how far it is from the
+   left and top of the box. Change a left or top number to move a picture. */
+.collage {
+  position: relative;
+  width: 1440px;
+  height: 886px;
+  margin-top: 313px;
+}
+
+.collage-item {
+  position: absolute;
+}
+
+.collage-1  { left: 426px;  top: 321px; width: 190px; }
+.collage-2  { left: 635px;  top: 562px; width: 171px; }
+.collage-3  { left: 817px;  top: 562px; width: 171px; }
+.collage-4  { left: 426px;  top: 0;     width: 190px; }
+.collage-5  { left: 209px;  top: 71px;  width: 191px; }
+.collage-6  { left: 65px;   top: 393px; width: 344px; }
+.collage-7  { left: 635px;  top: 71px;  width: 353px; }
+.collage-8  { left: 635px;  top: 321px; width: 353px; }
+.collage-9  { left: 1008px; top: 440px; width: 358px; }
+.collage-10 { left: 1008px; top: 90px;  width: 239px; }
+.collage-11 { left: 381px;  top: 638px; width: 235px; }
+.collage-12 { left: 1008px; top: 265px; width: 243px; }
+
+/* The six round pictures sit on top of the others */
+.collage-circle-1 { left: 943px;  top: 19px;  width: 111px; }
+.collage-circle-2 { left: 966px;  top: 638px; width: 112px; }
+.collage-circle-3 { left: 1224px; top: 187px; width: 109px; }
+.collage-circle-4 { left: 545px;  top: 775px; width: 110px; }
+.collage-circle-5 { left: 297px;  top: 590px; width: 112px; }
+.collage-circle-6 { left: 1222px; top: 358px; width: 111px; }
+/* ==========================================================
+   LANDFORM: Home Page
+   Colors and sizes come from the Figma "Home Page" frame (1440px wide).
+   ========================================================== */
+
+
+/* ---------- PAGE BASICS ---------- */
+
+body {
+  /* Colors used across the site. Change one here and it updates everywhere. */
+  --green: #55785f;
+  --hover-green: #94c298;
+  --light-gray: #edebeb;
+  --placeholder-gray: #d9d9d9;
+  --line-gray: #999999;
+  --black: #000000;
+  --white: #ffffff;
+
+  /* The Figma design is 1440px wide. min-width keeps the page from squishing on small windows. */
+  min-width: 1440px;
+  margin: 0;
+  font-family: "Iosevka Charon", monospace;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+
+/* ---------- PAGE WIDTH ---------- */
+
+/* Colored sections stretch all the way to the edges of the screen.
+   The content inside each one sits in a box with this class: 1440px wide
+   (the width of your Figma design) and centered with "margin: 0 auto". */
+.page-width {
+  box-sizing: border-box;
+  width: 1440px;
+  margin: 0 auto;
+}
+
+
+/* ---------- NAVIGATION BAR ---------- */
+
+.site-header {
+  background-color: var(--green);
+}
+
+/* The content inside the green bar: logo on the left, links on the right */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 113px;
+  padding: 0 70px 0 44px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* Height sets the size. Width adjusts itself so the logo is not stretched. */
+.logo-image {
+  height: 40px;
+  width: auto;
+}
+
+.logo-text {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.nav-list {
+  display: flex;
+  gap: 87px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* When the mouse is over a nav word, it turns light green.
+   This one rule covers About, Site, Design Process, Building and Seasons. */
+.nav-link:hover {
+  color: var(--hover-green);
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 960px;
+  border-bottom: 26px solid var(--light-gray);
+
+  /* Two layers: a gray fade on top of the building render.
+     Export the render from Figma as images/hero.jpg */
+  background-image:
+    linear-gradient(to bottom, rgba(217, 217, 217, 0) 0%, rgba(156, 156, 156, 0.59) 62%, #737373 100%),
+    url("images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-title {
+  margin: 0 0 44px 0;
+  /* letter-spacing also adds space after the last letter.
+     The left padding balances it so the word stays centered. */
+  padding-left: 112px;
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: 112.5px;
+  color: var(--white);
+  opacity: 0.9;
+}
+
+
+/* ---------- INTRO ---------- */
+
+.intro {
+  /* The curvy lines are background images of this section, so they can never
+     show outside of it. The first image is the top right lines, the second is the bottom left lines.
+     Figma cuts the lines off at the edge of the screen, so each image is only the part you can
+     see. The sizes below are exactly that visible width, and the lines sit flush against the
+     edges of the screen. */
+  background-image: url("images/lines-right.svg"), url("images/lines-left.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right top, left bottom;
+  background-size: 317px auto, 365px auto;
+}
+
+/* The centered box that holds the heading and the text */
+.intro-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 168px;
+  /* top, right, bottom, left */
+  padding: 159px 127px 154px 186px;
+}
+
+.intro-heading {
+  width: 308px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line-gray);
+}
+
+.intro-title {
+  margin: 0;
+  font-size: 64px;
+  line-height: 82px;
+}
+
+.intro-text {
+  flex: 1;
+  margin-top: 7px;
+}
+
+.intro-paragraph {
+  margin: 0 0 41px 0;
+  font-size: 32px;
+  line-height: 41px;
+}
+
+
+/* ---------- FEATURES (three columns) ---------- */
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 133px;
+  padding: 134px 0 150px 0;
+  color: var(--white);
+
+  /* A green tint over the contour-line texture.
+     The texture is the same image as the site map: images/site-map.png.
+     The green color shows even if the image is missing. */
+  background-color: #929f96;
+  background-image:
+    linear-gradient(rgba(146, 159, 150, 0.75), rgba(146, 159, 150, 0.75)),
+    url("images/site-map.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  text-align: center;
+}
+
+.feature-image {
+  display: block;
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* The thin dotted line above and below each feature title */
+.feature-line {
+  width: 0;
+  height: 57px;
+  border-left: 1px dotted var(--white);
+}
+
+.feature-title {
+  width: 215px;
+  margin: 9px 0 15px 0;
+  font-size: 32px;
+  line-height: 41px;
+}
+
+.feature-text {
+  margin: 7px 0 0 0;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.site-footer {
+  background-color: var(--light-gray);
+}
+
+/* The content inside the gray bar */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 209px;
+  padding: 0 87px 0 89px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.footer-logo-image {
+  height: 50px;
+  width: auto;
+}
+
+.footer-logo-text {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+/* The row of footer words: About, Contact Us, Milwaukee County */
+.footer-list {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+}
+
+/* The thin vertical line before "Milwaukee County" */
+.footer-item-divided {
+  height: 34px;
+  padding-left: 40px;
+  border-left: 1px solid var(--black);
+}
+
+/* "details" boxes are what open and close when clicked */
+.footer-details {
+  position: relative;
+}
+
+.footer-summary {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: var(--black);
+  cursor: pointer;
+  /* hides the little triangle the browser adds by default */
+  list-style: none;
+}
+
+.footer-summary:hover {
+  color: var(--green);
+}
+
+/* The links that appear when a word is clicked. They open upward so they stay on the page. */
+.footer-sublist {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 220px;
+  margin: 0;
+  padding: 16px 20px;
+  list-style: none;
+  background-color: var(--white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.footer-sublink {
+  display: block;
+  padding: 6px 0;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.footer-sublink:hover {
+  color: var(--green);
+}
+
+
+/* ==========================================================
+   ABOUT PAGE (about.html)
+   ========================================================== */
+
+
+/* ---------- BANNER ---------- */
+
+.about-banner-image {
+  display: block;
+  width: 100%;
+  height: 506px;
+  object-fit: cover;
+}
+
+
+/* ---------- WHITE AREA WITH CURVY LINES ---------- */
+
+.about-content {
+  /* Three curvy line images are backgrounds of this white area, so they stay inside it.
+     In order: top right, left, bottom right.
+     Figma cuts the lines off at the edge of the screen, so each image is only the part you can
+     see. The sizes below are exactly that visible width, and the lines sit flush against the
+     edges of the screen. */
+  background-image: url("images/about-lines-top-right.svg"), url("images/about-lines-left.svg"), url("images/about-lines-bottom-right.svg");
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: right top, left top 739px, right top 1275px;
+  background-size: 320px auto, 281px auto, 265px auto;
+}
+
+
+/* ---------- SHARED PARTS OF BOTH SECTIONS ---------- */
+
+/* Each section has a heading column on the left and text on the right */
+.about-design,
+.about-designers {
+  display: flex;
+  align-items: flex-start;
+}
+
+.about-side {
+  width: 327px;
+  margin-right: 112px;
+}
+
+.about-heading {
+  margin: 0 0 48px 0;
+  font-size: 64px;
+  line-height: 82px;
+}
+
+.about-heading em {
+  letter-spacing: 4.8px;
+}
+
+.about-line {
+  width: 303px;
+  border-top: 1px solid var(--line-gray);
+}
+
+.about-text {
+  width: 749px;
+}
+
+
+/* ---------- ABOUT THE DESIGN ---------- */
+
+.about-design {
+  /* top, right, bottom, left */
+  padding: 182px 98px 181px 154px;
+}
+
+.about-diagram {
+  display: block;
+  width: 282px;
+  margin: 126px 0 0 -16px;
+}
+
+.about-paragraph {
+  margin: 0 0 36px 0;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.about-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ---------- ABOUT THE DESIGNERS ---------- */
+
+.about-designers {
+  padding: 0 98px 189px 154px;
+}
+
+.about-names {
+  margin: 0 0 49px 0;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.about-bio {
+  margin: 0 0 65px 0;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+/* The contact list: "CONTACT:" on the left, the three people stacked on the right */
+.about-contact {
+  display: flex;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 41px;
+}
+
+/* The label is only as wide as its own text, then a small gap before the list (About page) */
+.contact-label {
+  margin-right: 14px;
+}
+
+.contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-link {
+  color: var(--black);
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  color: var(--green);
+}
+
+
+/* ==========================================================
+   SITE PAGE (site.html)
+   ========================================================== */
+
+
+/* ---------- BANNER ---------- */
+
+.site-banner-image {
+  display: block;
+  width: 100%;
+  height: 506px;
+  object-fit: cover;
+}
+
+
+/* About the curvy line sizes on this page:
+   Figma cuts the lines off at the edge of the screen, so each exported image is only the
+   part you can see. The sizes below are exactly that visible width, which keeps the left
+   and right lines at the same scale. The lines sit flush against the screen edges. */
+
+/* ---------- DOCTOR'S PARK (heading left, text right) ---------- */
+
+.site-intro {
+  /* Curvy lines: first image is top right, second is bottom left.
+     They are backgrounds, so they stay inside this section. */
+  background-image: url("images/site-lines-top-right.svg"), url("images/site-lines-bottom-left.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right top, left bottom;
+  background-size: 362px auto, 421px auto;
+}
+
+/* The centered box that holds the heading and the text */
+.site-intro-content {
+  display: flex;
+  align-items: flex-start;
+  /* top, right, bottom, left */
+  padding: 160px 136px 139px 177px;
+}
+
+.site-side {
+  width: 303px;
+  margin-right: 117px;
+}
+
+.site-heading {
+  margin: 0 0 27px 0;
+  font-size: 64px;
+  line-height: 82px;
+}
+
+.site-location {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin: 0 0 69px 0;
+  font-size: 28px;
+  line-height: 41px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.site-pin {
+  width: 19px;
+  height: 35px;
+}
+
+.site-line {
+  width: 303px;
+  border-top: 1px solid var(--line-gray);
+}
+
+.site-text {
+  width: 707px;
+}
+
+.site-paragraph {
+  margin: 0 0 36px 0;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.site-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ---------- EXISTING SITE CONDITIONS (green section) ---------- */
+
+.site-conditions {
+  /* position: relative lets the texture and the white label extension sit inside this section */
+  position: relative;
+  background-color: #929f96;
+}
+
+/* The contour-line texture (the same picture as the site map) lies on top of the section's
+   color, like in your Figma design. It is only 25% visible.
+   Make the opacity number bigger for stronger lines, or smaller for fainter lines.
+   The brown section below uses this too. */
+.texture-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("images/site-map.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 150% auto;
+  opacity: 0.25;
+  /* lets clicks go through the texture to the links and photos underneath */
+  pointer-events: none;
+}
+
+/* The texture in the brown section. In your Figma design the map picture is stretched tall
+   (1890px wide and 5254px tall) and only the bottom part of it shows, which is what gives
+   the long diagonal contour lines. These numbers copy that.
+   - background-size is "width height"
+   - background-position lines the picture up with the bottom of the section, so only
+     the bottom part of the tall picture shows
+   To zoom in or out, change the two numbers in background-size together. */
+.proposal-texture {
+  background-position: left -8px bottom -100px;
+  background-size: 1890px 5254px;
+}
+
+/* The white label continues to the right edge of the screen.
+   It starts where the centered 1440px box ends: the middle of the screen plus 720px. */
+.tab-extension {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 0;
+  height: 107px;
+  margin-left: 720px;
+  background-color: var(--white);
+  z-index: 1;
+}
+
+/* The centered box that holds the label, the photos and the thin outline */
+.conditions-canvas {
+  /* position: relative lets the outline boxes below sit in exact spots inside this box */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 106px;
+}
+
+/* The thin white outline around the photos. It steps around the white label in the top right,
+   so it is drawn with three simple pieces:
+   1. the left part, which has the top, left and bottom lines
+   2. the right part, which has the line under the label, the right line and the bottom line
+   3. a short line that connects the two parts next to the label
+   These sit directly in the green section, so they follow the edges of the screen:
+   the left part starts 36px from the left edge, the right part ends 34px from the right edge,
+   and the two parts meet at the middle of the screen (where the label starts). */
+.outline-left {
+  position: absolute;
+  left: 36px;
+  right: 50%;
+  margin-right: -87px;
+  top: 32px;
+  box-sizing: border-box;
+  height: 1117px;
+  border-top: 1px solid var(--white);
+  border-left: 1px solid var(--white);
+  border-bottom: 1px solid var(--white);
+}
+
+.outline-right {
+  position: absolute;
+  left: 50%;
+  margin-left: 86px;
+  right: 34px;
+  top: 137px;
+  box-sizing: border-box;
+  height: 1012px;
+  border-top: 1px solid var(--white);
+  border-right: 1px solid var(--white);
+  border-bottom: 1px solid var(--white);
+}
+
+.outline-notch {
+  position: absolute;
+  left: 50%;
+  margin-left: 86px;
+  top: 32px;
+  height: 105px;
+  border-left: 1px solid var(--white);
+}
+
+/* The white label in the top right corner */
+.conditions-label {
+  /* position and z-index keep the label on top of the texture */
+  position: relative;
+  z-index: 1;
+  align-self: flex-end;
+  box-sizing: border-box;
+  width: 599px;
+  height: 107px;
+  margin: 0 0 7px 0;
+  padding: 34px 0 0 119px;
+  background-color: var(--white);
+  font-size: 28px;
+  line-height: 40px;
+}
+
+.conditions-photos {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  padding-left: 99px;
+}
+
+.photo-left {
+  width: 594px;
+  margin: 0;
+}
+
+/* The right photo sits lower than the left one, so it gets extra space on top */
+.photo-right {
+  width: 594px;
+  margin: 262px 0 0 0;
+}
+
+/* Every photo on this page shares this white border.
+   Change the number here and all of the photos change together. */
+.site-photo,
+.proposal-photo,
+.shelter-photo {
+  box-sizing: border-box;
+  border: 3px solid var(--white);
+}
+
+.site-photo {
+  display: block;
+  width: 594px;
+  height: 594px;
+  border-radius: 32px;
+  object-fit: cover;
+}
+
+
+/* ---------- PHOTO CAPTIONS WITH THIN LINES ---------- */
+
+/* Caption below the left photo. The thin line goes down and then right, ending at the caption. */
+.callout-below {
+  display: flex;
+  align-items: flex-end;
+  margin: 22px 0 0 35px;
+  color: var(--white);
+}
+
+.callout-corner-left {
+  position: relative;
+  box-sizing: border-box;
+  width: 193px;
+  height: 70px;
+  border-left: 1px solid var(--white);
+  border-bottom: 1px solid var(--white);
+}
+
+.callout-text {
+  flex-shrink: 0;
+  width: 376px;
+  margin: 0 0 -15px 17px;
+  font-size: 24px;
+  line-height: 31px;
+}
+
+/* Caption above the right photo. The thin line goes right and then down, ending at the photo. */
+.callout-above {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 0 21px 0;
+  color: var(--white);
+}
+
+.callout-text-right {
+  width: 376px;
+  margin: 0 16px 0 0;
+  font-size: 24px;
+  line-height: 31px;
+}
+
+.callout-corner-right {
+  position: relative;
+  box-sizing: border-box;
+  width: 136px;
+  height: 70px;
+  margin-top: 19px;
+  border-top: 1px solid var(--white);
+  border-right: 1px solid var(--white);
+}
+
+/* The small white dot where each thin line meets its photo */
+.callout-dot-left,
+.callout-dot-right {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--white);
+}
+
+.callout-dot-left {
+  left: -5px;
+  top: -7px;
+}
+
+.callout-dot-right {
+  right: -5px;
+  bottom: -4px;
+}
+
+
+/* ---------- TITLES: THE PROPOSAL and SITE MAP ---------- */
+
+.site-title {
+  margin: 0;
+  /* letter-spacing also adds space after the last letter.
+     The left padding balances it so the words stay centered. */
+  padding-left: 90px;
+  text-align: center;
+  font-size: 40px;
+  line-height: 51px;
+  font-weight: bold;
+  letter-spacing: 90px;
+  opacity: 0.9;
+}
+
+.proposal-title {
+  padding: 160px 0 159px 0;
+  background-image: url("images/proposal-lines-left.svg"), url("images/proposal-lines-right.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right top;
+  background-size: 391px auto, 443px auto;
+}
+
+.map-title {
+  padding: 182px 0 170px 0;
+  background-image: url("images/map-lines-left.svg"), url("images/map-lines-right.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right top;
+  background-size: 375px auto, 245px auto;
+}
+
+
+/* ---------- THE PROPOSAL (brown section) ---------- */
+
+.proposal {
+  position: relative;
+  color: var(--white);
+  background-color: #9a938f;
+}
+
+/* The centered box that holds everything in this section */
+.proposal-content {
+  /* top, right, bottom, left */
+  padding: 63px 0 46px 0;
+}
+
+.proposal-top {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 104px;
+}
+
+.proposal-photo {
+  display: block;
+  width: 647px;
+  height: 796px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.proposal-text-block {
+  width: 512px;
+  margin: 158px 0 0 89px;
+}
+
+.proposal-line {
+  width: 303px;
+  margin-bottom: 52px;
+  border-top: 1px solid var(--white);
+}
+
+.proposal-text {
+  margin: 0;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+/* Row of three small photos */
+.shelter-photos {
+  display: flex;
+  gap: 56px;
+  margin: 128px 0 0 0;
+  padding: 0 0 0 105px;
+  list-style: none;
+}
+
+.shelter-photo {
+  display: block;
+  width: 380px;
+  height: 401px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.shelter-notes {
+  display: flex;
+  align-items: flex-end;
+  margin: 28px 0 0 129px;
+}
+
+.shelter-bracket {
+  display: block;
+  width: 918px;
+}
+
+.shelter-caption {
+  margin: 0 0 -15px 17px;
+  font-size: 16px;
+  line-height: 31px;
+}
+
+
+/* ---------- SITE MAP ---------- */
+
+.site-map {
+  position: relative;
+}
+
+/* The map picture stretches to the edges of the screen */
+.map-image {
+  display: block;
+  width: 100%;
+}
+
+.map-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  width: 599px;
+  height: 107px;
+  margin: 0;
+  padding: 31px 0 0 60px;
+  background-color: var(--white);
+  font-size: 28px;
+  line-height: 40px;
+}
+
+/* The circles sit on top of the map. Their positions and sizes are percentages of the map,
+   so they stay lined up with the map no matter how wide the screen is.
+   "left" is the distance from the left edge, "top" is the distance from the top of the map. */
+.marker {
+  position: absolute;
+  width: 10.56%;
+}
+
+.marker-image {
+  display: block;
+  width: 100%;
+}
+
+.marker-landform {
+  left: 11.25%;
+  top: 33.66%;
+  width: 27.22%;
+}
+
+.marker-1 {
+  left: 48.13%;
+  top: 12.88%;
+}
+
+.marker-2 {
+  left: 9.38%;
+  top: 16.27%;
+}
+
+.marker-3 {
+  left: 69.31%;
+  top: 35.97%;
+}
+
+.marker-4 {
+  left: 50.49%;
+  top: 61.17%;
+}
+
+.marker-5 {
+  left: 12.57%;
+  top: 68.41%;
+}
+
+.map-compass {
+  position: absolute;
+  right: 39px;
+  bottom: 42px;
+  width: 87px;
+}
+
+
+/* ==========================================================
+   DESIGN PROCESS PAGE
+   Colors and sizes come from the Figma "Design Process" frame (1440px wide).
+   ========================================================== */
+
+/* ---------- BANNER ---------- */
+
+.process-banner-image {
+  display: block;
+  width: 100%;
+  height: 506px;
+  object-fit: cover;
+}
+
+
+/* ---------- INTRO (heading left, quote right) ---------- */
+
+.process-intro {
+  /* Curvy lines in the top left and top right corners.
+     Each image is only the part you can see in Figma, and sits against the edge of the screen. */
+  background-image: url("images/process-lines-top-left.svg"), url("images/process-lines-top-right.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right top 1px;
+  background-size: 217px auto, 145px auto;
+}
+
+.process-intro-content {
+  display: flex;
+  align-items: flex-start;
+  /* top, right, bottom, left */
+  padding: 182px 0 150px 204px;
+}
+
+.process-side {
+  width: 303px;
+  margin-right: 109px;
+}
+
+.process-heading {
+  margin: 0 0 74px 0;
+  font-size: 64px;
+  line-height: 82px;
+}
+
+.process-line {
+  border-top: 1px solid var(--line-gray);
+}
+
+.process-text {
+  width: 707px;
+}
+
+.process-label,
+.process-quote {
+  margin: 0;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.process-label {
+  font-style: italic;
+}
+
+.process-quote {
+  margin-top: 29px;
+}
+
+
+/* ---------- SHARED PARTS OF ALL FOUR PHASES ---------- */
+
+/* Everything in a phase is stacked in one centered column */
+.phase-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.phase-content img {
+  display: block;
+}
+
+.phase-title {
+  margin: 0;
+  font-size: 64px;
+  line-height: 84px;
+  font-style: italic;
+}
+
+.phase-subtitle,
+.phase-paragraph {
+  margin: 0;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.phase-subtitle {
+  font-style: italic;
+}
+
+
+/* ---------- PHASE 1 ---------- */
+
+.phase-1-content {
+  padding-bottom: 317px;
+  /* The dashed lines are backgrounds. Each one is "left, top" measured from the top left
+     of this box. In order: right side, left side, bottom. */
+  background-image: url("images/phase1-dash-right.svg"), url("images/phase1-dash-left.svg"), url("images/phase1-dash-bottom.svg");
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: left 1195px top 490px, left 77px top 1403px, left 698px top 1835px;
+  background-size: 142px auto, 214px auto, 592px auto;
+}
+
+.phase-1-iterations {
+  width: 878px;
+  margin-top: 62px;
+}
+
+.phase-1-diagrams {
+  width: 890px;
+  margin-top: 46px;
+}
+
+.phase-1-paragraph {
+  width: 715px;
+  margin-top: 47px;
+}
+
+.phase-1-program {
+  box-sizing: border-box;
+  width: 787px;
+  margin-top: 60px;
+  border: 1px solid #9d9d9d;
+}
+
+
+/* ---------- PHASE 2 ---------- */
+
+.phase-2-content {
+  padding-bottom: 300px;
+  background-image: url("images/phase2-dash.svg");
+  background-repeat: no-repeat;
+  background-position: left 181px top 627px;
+  background-size: 556px auto;
+}
+
+.phase-2-row {
+  display: flex;
+  gap: 28px;
+  margin-top: 74px;
+  /* This small push to the right matches the position in your design */
+  padding-left: 60px;
+}
+
+.phase-2-image {
+  box-sizing: border-box;
+  width: 341px;
+  border: 1px solid var(--black);
+}
+
+.phase-2-paragraph {
+  width: 744px;
+  margin-top: 74px;
+}
+
+
+/* ---------- PHASE 3 ---------- */
+
+.phase-3-content {
+  padding-bottom: 332px;
+  background-image: url("images/phase3-dash-left.svg"), url("images/phase3-dash-right.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left 68px top 338px, left 714px top 1287px;
+  background-size: 128px auto, 606px auto;
+}
+
+.phase-3-subtitle {
+  margin-top: 37px;
+}
+
+/* Four plans in two rows of two */
+.phase-3-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  /* row gap, then column gap */
+  gap: 31px 36px;
+  width: 976px;
+  margin-top: 38px;
+}
+
+.phase-3-image {
+  box-sizing: border-box;
+  width: 470px;
+  border: 1px solid var(--black);
+}
+
+.phase-3-paragraph {
+  width: 746px;
+  margin-top: 66px;
+}
+
+
+/* ---------- PHASE 4 ---------- */
+
+.phase-4 {
+  /* Curvy lines in the bottom left and bottom right corners */
+  background-image: url("images/process-lines-bottom-left.svg"), url("images/process-lines-bottom-right.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left bottom, right bottom;
+  background-size: 353px auto, 386px auto;
+}
+
+.phase-4-content {
+  padding-bottom: 167px;
+  background-image: url("images/phase4-dash.svg");
+  background-repeat: no-repeat;
+  background-position: left 170px top 256px;
+  background-size: 613px auto;
+}
+
+.phase-4-paragraph {
+  width: 746px;
+  margin-top: 59px;
+}
+
+
+/* ---------- COLLAGE ---------- */
+
+/* The collage pictures overlap each other, so this is the one place that uses exact positions.
+   The box is 1440px wide like the page. Each picture says how far it is from the
+   left and top of the box. Change a left or top number to move a picture. */
+.collage {
+  position: relative;
+  width: 1440px;
+  height: 886px;
+  margin-top: 313px;
+}
+
+.collage-item {
+  position: absolute;
+}
+
+.collage-1  { left: 426px;  top: 321px; width: 190px; }
+.collage-2  { left: 635px;  top: 562px; width: 171px; }
+.collage-3  { left: 817px;  top: 562px; width: 171px; }
+.collage-4  { left: 426px;  top: 0;     width: 190px; }
+.collage-5  { left: 209px;  top: 71px;  width: 191px; }
+.collage-6  { left: 65px;   top: 393px; width: 344px; }
+.collage-7  { left: 635px;  top: 71px;  width: 353px; }
+.collage-8  { left: 635px;  top: 321px; width: 353px; }
+.collage-9  { left: 1008px; top: 440px; width: 358px; }
+.collage-10 { left: 1008px; top: 90px;  width: 239px; }
+.collage-11 { left: 381px;  top: 638px; width: 235px; }
+.collage-12 { left: 1008px; top: 265px; width: 243px; }
+
+/* The six round pictures sit on top of the others */
+.collage-circle-1 { left: 943px;  top: 19px;  width: 111px; }
+.collage-circle-2 { left: 966px;  top: 638px; width: 112px; }
+.collage-circle-3 { left: 1224px; top: 187px; width: 109px; }
+.collage-circle-4 { left: 545px;  top: 775px; width: 110px; }
+.collage-circle-5 { left: 297px;  top: 590px; width: 112px; }
+.collage-circle-6 { left: 1222px; top: 358px; width: 111px; }
