@@ -284,47 +284,15 @@ body {
   border-left: 1px solid var(--black);
 }
 
-/* "details" boxes are what open and close when clicked */
-.footer-details {
-  position: relative;
-}
-
-.footer-summary {
+/* The footer words are plain links */
+.footer-link {
   font-family: "Inter", sans-serif;
   font-size: 20px;
-  color: var(--black);
-  cursor: pointer;
-  /* hides the little triangle the browser adds by default */
-  list-style: none;
-}
-
-.footer-summary:hover {
-  color: var(--green);
-}
-
-/* The links that appear when a word is clicked. They open upward so they stay on the page. */
-.footer-sublist {
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  width: 220px;
-  margin: 0;
-  padding: 16px 20px;
-  list-style: none;
-  background-color: var(--white);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-}
-
-.footer-sublink {
-  display: block;
-  padding: 6px 0;
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
   color: var(--black);
   text-decoration: none;
 }
 
-.footer-sublink:hover {
+.footer-link:hover {
   color: var(--green);
 }
 
@@ -590,18 +558,7 @@ body {
   background-size: 1890px 5254px;
 }
 
-/* The white label continues to the right edge of the screen.
-   It starts where the centered 1440px box ends: the middle of the screen plus 720px. */
-.tab-extension {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  right: 0;
-  height: 107px;
-  margin-left: 720px;
-  background-color: var(--white);
-  z-index: 1;
-}
+
 
 /* The centered box that holds the label, the photos and the thin outline */
 .conditions-canvas {
@@ -655,20 +612,31 @@ body {
   border-left: 1px solid var(--white);
 }
 
-/* The white label in the top right corner */
+/* The white label in the top right corner. It starts where the label starts in Figma
+   (the middle of the screen plus 121px) and runs to the right edge of the screen,
+   and the text is centered in that white area. */
 .conditions-label {
-  /* position and z-index keep the label on top of the texture */
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 0;
   z-index: 1;
-  align-self: flex-end;
   box-sizing: border-box;
+  height: 107px;
+  margin: 0 0 0 121px;
+  padding-top: 34px;
+  background-color: var(--white);
+  text-align: center;
+  font-size: 28px;
+  line-height: 40px;
+}
+
+/* Empty space in the canvas where the label sits (107px label + 7px gap) */
+.conditions-label-space {
+  align-self: flex-end;
   width: 599px;
   height: 107px;
   margin: 0 0 7px 0;
-  padding: 34px 0 0 119px;
-  background-color: var(--white);
-  font-size: 28px;
-  line-height: 40px;
 }
 
 .conditions-photos {
@@ -930,6 +898,20 @@ body {
 .marker-image {
   display: block;
   width: 100%;
+  transition: filter 0.2s;
+}
+
+/* The markers are buttons, so the browser's default button look is turned off */
+button.marker {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* Hover: the light mint circle turns a darker teal, like the hover version in Figma */
+.marker:hover .marker-image {
+  filter: brightness(0.72) saturate(1.4);
 }
 
 .marker-landform {
@@ -1217,6 +1199,22 @@ body {
 
 .collage-item {
   position: absolute;
+  /* The pictures are buttons, so the browser's default button look is turned off */
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.collage-image {
+  display: block;
+  width: 100%;
+  transition: filter 0.2s;
+}
+
+/* Hover: the picture gets slightly darker */
+.collage-item:hover .collage-image {
+  filter: brightness(0.8);
 }
 
 .collage-1  { left: 426px;  top: 321px; width: 190px; }
@@ -1721,3 +1719,118 @@ body {
    label frame starts 170.5px from the left and 4663.5px down. Plan 2 starts at the left edge. */
 .plan-label-1 { left: -102px; top: -84px; width: 1270px; }
 .plan-label-2 { left: 0; top: -88px; width: 1261px; }
+
+
+/* ==========================================================
+   SITE MAP POP-UPS
+   Each one opens when you click a circle on the map.
+   ========================================================== */
+
+.popup {
+  box-sizing: border-box;
+  width: 1376px;
+  height: 683px;
+  padding: 0 0 0 154px;
+  border: 0;
+  overflow: hidden;
+  background-color: var(--white);
+  /* Thin black lines in the top left and bottom right corners. They only show the part
+     you can see in Figma, so each picture sits right in its corner. */
+  background-image: url("images/popup-lines-right.svg"), url("images/popup-lines-left.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right bottom, left top;
+  background-size: 163px auto, 212px auto;
+}
+
+/* The pop-up is hidden until it is opened. When it opens, the title and text sit side by side,
+   centered up and down. */
+.popup:popover-open {
+  display: flex;
+  align-items: center;
+}
+
+/* The faded dark layer behind the pop-up. Make the last number bigger for a darker fade. */
+.popup::backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.popup-title-block {
+  width: 440px;
+  flex-shrink: 0;
+}
+
+.popup-label {
+  margin: 0 0 12px 0;
+  font-family: "Iosevka Charon", monospace;
+  font-size: 28px;
+  line-height: 40px;
+}
+
+.popup-title {
+  margin: 0;
+  font-family: "Iosevka Charon", monospace;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 100px;
+}
+
+.popup-title-large {
+  font-size: 128px;
+  line-height: 160px;
+}
+
+.popup-text {
+  width: 582px;
+  margin-left: 38px;
+}
+
+.popup-paragraph {
+  margin: 0;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 32px;
+  line-height: 42px;
+}
+
+/* "See the building" link with the thin line under it */
+.popup-link {
+  display: inline-block;
+  margin-top: 42px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--black);
+  font-family: "Iosevka Charon Mono", monospace;
+  font-size: 32px;
+  line-height: 42px;
+  color: var(--black);
+  text-decoration: none;
+}
+
+
+/* ==========================================================
+   DESIGN PROCESS POP-UPS (larger versions of the collage pictures)
+   ========================================================== */
+
+/* Each pop-up is 1138px wide and 945px tall, like the frames in Figma.
+   On a smaller screen it shrinks to fit, keeping its shape. */
+.image-popup {
+  box-sizing: border-box;
+  width: 1138px;
+  height: 945px;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background-color: var(--white);
+}
+
+.image-popup-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* The faded dark layer behind the pop-up. Make the last number bigger for a darker fade. */
+.image-popup::backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
+}

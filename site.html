@@ -71,7 +71,8 @@
       <section class="site-conditions">
         <div class="page-width conditions-canvas">
 
-          <p class="conditions-label">EXISTING SITE CONDITIONS:</p>
+          <!-- Empty space where the white label sits, so the photos stay in the same spot -->
+          <div class="conditions-label-space"></div>
 
           <div class="conditions-photos">
 
@@ -106,8 +107,9 @@
         <div class="outline-right"></div>
         <div class="outline-notch"></div>
 
-        <!-- The white label continues to the right edge of the screen -->
-        <div class="tab-extension"></div>
+        <!-- The white label. It sits in the section so it can stretch to the right edge of the screen,
+             and the text is centered in the whole white area. -->
+        <p class="conditions-label">EXISTING SITE CONDITIONS:</p>
 
         <!-- The contour-line texture sits on top of the green section, see-through -->
         <div class="texture-overlay"></div>
@@ -143,8 +145,9 @@
           </div>
         </div>
 
-        <!-- The contour-line texture sits on top of the brown section, see-through -->
-        <div class="texture-overlay"></div>
+        <!-- The contour-line texture sits on top of the brown section, see-through.
+             The extra class "proposal-texture" sets its size and position (see styles.css) -->
+        <div class="texture-overlay proposal-texture"></div>
       </section>
 
       <!-- SITE MAP (title) -->
@@ -152,34 +155,98 @@
         <h2 class="site-title">SITE MAP</h2>
       </section>
 
-      <!-- SITE MAP: each circle is a link to learn more about that building.
-           The circles sit on top of the map, so they are placed with exact positions in styles.css.
-           The links below all go to building.html for now. Change them once you know where each should go. -->
+      <!-- SITE MAP: each circle is a button. Clicking one opens the pop-up with the matching
+           name below (the button's "popovertarget" matches the pop-up's "id").
+           The circles sit on top of the map, so they are placed with exact positions in styles.css. -->
       <section class="site-map">
         <img class="map-image" src="images/site-map.png" alt="Map of Doctor’s Park showing LANDFORM and the five shelters">
         <p class="map-label">Learn more about each building below:</p>
 
-        <a class="marker marker-landform" href="building.html">
+        <button class="marker marker-landform" popovertarget="popup-landform">
           <img class="marker-image" src="images/map-landform.svg" alt="LANDFORM building">
-        </a>
-        <a class="marker marker-1" href="building.html">
+        </button>
+        <button class="marker marker-1" popovertarget="popup-shelter-1">
           <img class="marker-image" src="images/map-shelter.svg" alt="Shelter 1">
-        </a>
-        <a class="marker marker-2" href="building.html">
+        </button>
+        <button class="marker marker-2" popovertarget="popup-shelter-2">
           <img class="marker-image" src="images/map-shelter.svg" alt="Shelter 2">
-        </a>
-        <a class="marker marker-3" href="building.html">
+        </button>
+        <button class="marker marker-3" popovertarget="popup-shelter-3">
           <img class="marker-image" src="images/map-shelter.svg" alt="Shelter 3">
-        </a>
-        <a class="marker marker-4" href="building.html">
+        </button>
+        <button class="marker marker-4" popovertarget="popup-shelter-4">
           <img class="marker-image" src="images/map-shelter-4.svg" alt="Shelter 4">
-        </a>
-        <a class="marker marker-5" href="building.html">
+        </button>
+        <button class="marker marker-5" popovertarget="popup-shelter-5">
           <img class="marker-image" src="images/map-shelter-5.svg" alt="Shelter 5">
-        </a>
+        </button>
 
         <img class="map-compass" src="images/compass.svg" alt="Compass">
       </section>
+
+      <!-- POP-UPS: one for each circle on the map.
+           "popover" makes each one a pop-up that opens on top of the page with the background faded.
+           Clicking outside the pop-up (or pressing Esc) closes it.
+           The "id" is the one place IDs are needed: it connects each circle button to its pop-up. -->
+      <div class="popup" popover id="popup-landform">
+        <div class="popup-title-block">
+          <h2 class="popup-title popup-title-large">LAND-<br>FORM</h2>
+        </div>
+        <div class="popup-text">
+          <p class="popup-paragraph">The starting point and end of the trail, and the park’s main building: a recreational community center set mostly underground in the hill, built from on-site timber. It’s where you arrive, gather, warm up or cool off, and where the loop returns you. Its sunroofs and sliding glass doors open the spaces to the weather or close them against it, so the building works in every season.</p>
+          <a class="popup-link" href="building.html">→ See the building</a>
+        </div>
+      </div>
+
+      <div class="popup" popover id="popup-shelter-1">
+        <div class="popup-title-block">
+          <p class="popup-label">SHELTER 1:</p>
+          <h2 class="popup-title">INTO THE WOODS</h2>
+        </div>
+        <div class="popup-text">
+          <p class="popup-paragraph">The first stop after leaving LANDFORM, where the park’s open edge gives way to the woods. A place to pause, get oriented and decide which way to go.</p>
+        </div>
+      </div>
+
+      <div class="popup" popover id="popup-shelter-2">
+        <div class="popup-title-block">
+          <p class="popup-label">SHELTER 2:</p>
+          <h2 class="popup-title">UNDER THE CANOPY</h2>
+        </div>
+        <div class="popup-text">
+          <p class="popup-paragraph">A resting point among the trees, built for shade and quiet along the upper part of the loop.</p>
+        </div>
+      </div>
+
+      <div class="popup" popover id="popup-shelter-3">
+        <div class="popup-title-block">
+          <p class="popup-label">SHELTER 3:</p>
+          <h2 class="popup-title">TOWARD THE WATER</h2>
+        </div>
+        <div class="popup-text">
+          <p class="popup-paragraph">A stop with a view or a sense of the lake nearby, for catching wind, light and weather coming off Lake Michigan.</p>
+        </div>
+      </div>
+
+      <div class="popup" popover id="popup-shelter-4">
+        <div class="popup-title-block">
+          <p class="popup-label">SHELTER 4:</p>
+          <h2 class="popup-title">AT THE SHORELINE</h2>
+        </div>
+        <div class="popup-text">
+          <p class="popup-paragraph">The stop closest to Lake Michigan (direct-access), a place to watch the weather and do water-related activities.</p>
+        </div>
+      </div>
+
+      <div class="popup" popover id="popup-shelter-5">
+        <div class="popup-title-block">
+          <p class="popup-label">SHELTER 5:</p>
+          <h2 class="popup-title">THE RETURN</h2>
+        </div>
+        <div class="popup-text">
+          <p class="popup-paragraph">The last small stop before the trail loops back toward the landform building. A place to rest before the next part of the walk.</p>
+        </div>
+      </div>
 
     </article>
   </main>
@@ -192,42 +259,12 @@
         <span class="footer-logo-text">LANDFORM</span>
       </a>
 
-      <!-- Each item is a "details" box. Clicking the word (the "summary") opens the links inside it.
-           The link names and pages below are placeholders. Replace them with your own. -->
       <nav class="footer-nav">
         <ul class="footer-list">
-
-          <li class="footer-item">
-            <details class="footer-details">
-              <summary class="footer-summary">About</summary>
-              <ul class="footer-sublist">
-                <li><a class="footer-sublink" href="about.html">About link 1</a></li>
-                <li><a class="footer-sublink" href="about.html">About link 2</a></li>
-              </ul>
-            </details>
-          </li>
-
-          <li class="footer-item">
-            <details class="footer-details">
-              <summary class="footer-summary">Contact Us</summary>
-              <ul class="footer-sublist">
-                <li><a class="footer-sublink" href="contact.html">Contact link 1</a></li>
-                <li><a class="footer-sublink" href="contact.html">Contact link 2</a></li>
-              </ul>
-            </details>
-          </li>
-
+          <li class="footer-item"><a class="footer-link" href="about.html">About</a></li>
+          <li class="footer-item"><a class="footer-link" href="https://uwm.edu/architecture/">Contact Us</a></li>
           <!-- This item has the thin vertical line on its left side -->
-          <li class="footer-item footer-item-divided">
-            <details class="footer-details">
-              <summary class="footer-summary">Milwaukee County</summary>
-              <ul class="footer-sublist">
-                <li><a class="footer-sublink" href="milwaukee-county.html">Milwaukee County link 1</a></li>
-                <li><a class="footer-sublink" href="milwaukee-county.html">Milwaukee County link 2</a></li>
-              </ul>
-            </details>
-          </li>
-
+          <li class="footer-item footer-item-divided"><a class="footer-link" href="https://county.milwaukee.gov/EN/Parks">Milwaukee County</a></li>
         </ul>
       </nav>
     </div>
