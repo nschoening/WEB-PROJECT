@@ -150,7 +150,7 @@ body {
 .intro-heading {
   width: 308px;
   padding-bottom: 40px;
-  border-bottom: 1px solid var(--line-gray);
+  border-bottom: 2px solid var(--line-gray);
 }
 
 .intro-title {
@@ -166,8 +166,10 @@ body {
 
 .intro-paragraph {
   margin: 0 0 41px 0;
-  font-size: 32px;
-  line-height: 41px;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 36px;
 }
 
 
@@ -180,13 +182,10 @@ body {
   padding: 134px 0 150px 0;
   color: var(--white);
 
-  /* A green tint over the contour-line texture.
-     The texture is the same image as the site map: images/site-map.png.
-     The green color shows even if the image is missing. */
+  /* The whole look (green color + contour lines) is one image exported from Figma.
+     The green color shows until the image loads. */
   background-color: #929f96;
-  background-image:
-    linear-gradient(rgba(146, 159, 150, 0.75), rgba(146, 159, 150, 0.75)),
-    url("images/site-map.png");
+  background-image: url("images/features-background.png");
   background-size: cover;
   background-position: center;
 }
@@ -205,14 +204,13 @@ body {
   height: 225px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 /* The thin dotted line above and below each feature title */
 .feature-line {
   width: 0;
   height: 57px;
-  border-left: 1px dotted var(--white);
+  border-left: 2px dotted var(--white);
 }
 
 .feature-title {
@@ -353,7 +351,7 @@ body {
 
 .about-line {
   width: 303px;
-  border-top: 1px solid var(--line-gray);
+  border-top: 2px solid var(--line-gray);
 }
 
 .about-text {
@@ -377,6 +375,7 @@ body {
 .about-paragraph {
   margin: 0 0 36px 0;
   font-family: "Iosevka Charon Mono", monospace;
+  font-weight: normal;
   font-size: 28px;
   line-height: 36px;
 }
@@ -394,12 +393,16 @@ body {
 
 .about-names {
   margin: 0 0 49px 0;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-weight: normal;
   font-size: 28px;
   line-height: 36px;
 }
 
 .about-bio {
   margin: 0 0 65px 0;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-weight: normal;
   font-size: 28px;
   line-height: 36px;
 }
@@ -408,6 +411,8 @@ body {
 .about-contact {
   display: flex;
   font-style: normal;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-weight: normal;
   font-size: 28px;
   line-height: 41px;
 }
@@ -501,7 +506,7 @@ body {
 
 .site-line {
   width: 303px;
-  border-top: 1px solid var(--line-gray);
+  border-top: 2px solid var(--line-gray);
 }
 
 .site-text {
@@ -510,6 +515,8 @@ body {
 
 .site-paragraph {
   margin: 0 0 36px 0;
+  font-family: "Iosevka Charon Mono", monospace;
+  font-weight: normal;
   font-size: 28px;
   line-height: 36px;
 }
@@ -522,15 +529,14 @@ body {
 /* ---------- EXISTING SITE CONDITIONS (green section) ---------- */
 
 .site-conditions {
-  /* position: relative lets the texture and the white label extension sit inside this section */
+  /* position: relative lets the texture and the white label sit inside this section */
   position: relative;
   background-color: #929f96;
 }
 
-/* The contour-line texture (the same picture as the site map) lies on top of the section's
-   color, like in your Figma design. It is only 25% visible.
-   Make the opacity number bigger for stronger lines, or smaller for fainter lines.
-   The brown section below uses this too. */
+/* The faint contour-line texture (the site map picture) on top of the green and brown sections.
+   The size is set as a percentage of the section width, so the texture stretches to fill the
+   section on any screen width. Nothing is exported from Figma for it. */
 .texture-overlay {
   position: absolute;
   top: 0;
@@ -546,16 +552,10 @@ body {
   pointer-events: none;
 }
 
-/* The texture in the brown section. In your Figma design the map picture is stretched tall
-   (1890px wide and 5254px tall) and only the bottom part of it shows, which is what gives
-   the long diagonal contour lines. These numbers copy that.
-   - background-size is "width height"
-   - background-position lines the picture up with the bottom of the section, so only
-     the bottom part of the tall picture shows
-   To zoom in or out, change the two numbers in background-size together. */
+/* The brown section uses the same picture, stretched taller and positioned like in Figma */
 .proposal-texture {
   background-position: left -8px bottom -100px;
-  background-size: 1890px 5254px;
+  background-size: 131% 5254px;
 }
 
 
@@ -664,6 +664,8 @@ body {
 .shelter-photo {
   box-sizing: border-box;
   border: 3px solid var(--white);
+  position: relative;
+  z-index: 1;
 }
 
 .site-photo {
@@ -690,8 +692,8 @@ body {
   box-sizing: border-box;
   width: 193px;
   height: 70px;
-  border-left: 1px solid var(--white);
-  border-bottom: 1px solid var(--white);
+  border-left: 2px dotted var(--white);
+  border-bottom: 2px dotted var(--white);
 }
 
 .callout-text {
@@ -723,8 +725,8 @@ body {
   width: 136px;
   height: 70px;
   margin-top: 19px;
-  border-top: 1px solid var(--white);
-  border-right: 1px solid var(--white);
+  border-top: 2px dotted var(--white);
+  border-right: 2px dotted var(--white);
 }
 
 /* The small white dot where each thin line meets its photo */
@@ -816,12 +818,13 @@ body {
 .proposal-line {
   width: 303px;
   margin-bottom: 52px;
-  border-top: 1px solid var(--white);
+  border-top: 2px solid var(--white);
 }
 
 .proposal-text {
   margin: 0;
   font-family: "Iosevka Charon Mono", monospace;
+  font-weight: normal;
   font-size: 28px;
   line-height: 36px;
 }
@@ -856,7 +859,7 @@ body {
 
 .shelter-caption {
   margin: 0 0 -15px 17px;
-  font-size: 16px;
+  font-size: 24px;
   line-height: 31px;
 }
 
@@ -998,7 +1001,7 @@ button.marker {
 }
 
 .process-line {
-  border-top: 1px solid var(--line-gray);
+  border-top: 2px solid var(--line-gray);
 }
 
 .process-text {
@@ -1009,6 +1012,7 @@ button.marker {
 .process-quote {
   margin: 0;
   font-family: "Iosevka Charon Mono", monospace;
+  font-weight: normal;
   font-size: 28px;
   line-height: 36px;
 }
@@ -1047,6 +1051,7 @@ button.marker {
 .phase-paragraph {
   margin: 0;
   font-family: "Iosevka Charon Mono", monospace;
+  font-weight: normal;
   font-size: 28px;
   line-height: 36px;
 }
@@ -1284,7 +1289,7 @@ button.marker {
 }
 
 .building-line {
-  border-top: 1px solid var(--line-gray);
+  border-top: 2px solid var(--line-gray);
 }
 
 .building-text {
@@ -1295,6 +1300,7 @@ button.marker {
 .building-scroll {
   margin: 0;
   font-family: "Iosevka Charon Mono", monospace;
+  font-weight: normal;
   font-size: 28px;
   line-height: 36px;
 }
@@ -1376,7 +1382,7 @@ button.marker {
   left: 54px;
   top: 7px;
   height: 41px;
-  border-left: 1px solid var(--black);
+  border-left: 2px dotted var(--black);
 }
 
 .caption-across {
@@ -1384,7 +1390,7 @@ button.marker {
   left: 54px;
   top: 48px;
   width: 37px;
-  border-top: 1px solid var(--black);
+  border-top: 2px dotted var(--black);
 }
 
 .caption-text {
@@ -1438,12 +1444,11 @@ button.marker {
   height: 503px;
   background-image: url("images/seasons-banner-lines.svg");
   background-repeat: no-repeat;
-  /* In Figma this group is 938px wide and starts 338px from the left.
-     Here it is made about 10% bigger (1032px) to fill more of the banner, and moved
-     left 47px so it stays centered in the same spot. To make it bigger or smaller,
-     change the width below and move the left number by half of the difference. */
-  background-position: 291px -2px;
-  background-size: 1032px auto;
+  /* This matches Figma exactly: the group is 938px wide, starts 338px from the left
+     and sits 2px above the banner. To make it bigger, raise the width and lower the left
+     number by half of the increase (for example 1000px wide and 307px from the left). */
+  background-position: 338px -2px;
+  background-size: 938px auto;
 }
 
 
@@ -1477,13 +1482,14 @@ button.marker {
 
 .seasons-line {
   width: 364px;
-  border-top: 1px solid var(--line-gray);
+  border-top: 2px solid var(--line-gray);
 }
 
 .seasons-paragraph {
   width: 707px;
   margin: 17px 0 0 0;
   font-family: "Iosevka Charon Mono", monospace;
+  font-weight: normal;
   font-size: 28px;
   line-height: 36px;
 }
@@ -1654,6 +1660,9 @@ button.marker {
 .plans-paragraph {
   margin: 0 0 0 263px;
   font-family: "Iosevka Charon Mono", monospace;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 36px;
 }
 
 .plans-label {
@@ -1665,8 +1674,6 @@ button.marker {
 .plans-paragraph {
   width: 872px;
   margin-top: 48px;
-  font-size: 32px;
-  line-height: 37px;
 }
 
 /* Each round plan has small pictures and a curved label placed on top of it.
@@ -1787,8 +1794,9 @@ button.marker {
 .popup-paragraph {
   margin: 0;
   font-family: "Iosevka Charon Mono", monospace;
-  font-size: 32px;
-  line-height: 42px;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 36px;
 }
 
 /* "See the building" link with the thin line under it */
